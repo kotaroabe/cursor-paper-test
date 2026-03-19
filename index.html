@@ -3,227 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customer Profile - Playful</title>
+  <title>顧客リスト - Client List</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #F0E8F5 0%, #E8E2EE 50%, #FCEAE8 100%);
-      font-synthesis: none;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    .top-bar { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 16px 24px 12px; flex-shrink: 0; }
+    .top-bar h1 { font-weight: 900; font-size: 22px; line-height: 28px; color: #3C2A4D; }
+    .top-bar .subtitle { font-weight: 500; font-size: 12px; color: #9B8AAE; }
+
+    .stats-row { display: flex; width: 100%; padding: 0 24px 16px; gap: 10px; flex-shrink: 0; }
+    .stat-card {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      border-radius: 16px; padding: 14px 8px; gap: 2px;
+      background: #FFF; border: 2px solid; box-shadow: 0 3px 0;
     }
-    .phone-frame {
-      width: 390px;
-      min-height: 843px;
-      display: flex;
-      flex-direction: column;
-      background: #FFFFFF;
-      border-radius: 40px;
-      overflow: hidden;
-      box-shadow: 0 25px 80px rgba(60,42,77,0.18), 0 4px 20px rgba(0,0,0,0.06);
-      font-family: 'Nunito', system-ui, sans-serif;
-      font-size: 12px;
-      line-height: 16px;
+    .stat-card.coral { border-color: #F0E8F5; box-shadow: 0 3px 0 #F0E8F5; }
+    .stat-card.teal  { border-color: #E6FFFE; box-shadow: 0 3px 0 #E6FFFE; }
+    .stat-card.amber { border-color: #FFF8EB; box-shadow: 0 3px 0 #FFF8EB; }
+    .stat-num { font-weight: 900; font-size: 24px; line-height: 30px; }
+    .stat-label { font-weight: 600; font-size: 11px; line-height: 14px; }
+
+    .search-section { display: flex; flex-direction: column; width: 100%; padding: 0 24px 12px; gap: 10px; flex-shrink: 0; }
+    .search-box {
+      display: flex; width: 100%; align-items: center; border-radius: 14px;
+      padding: 12px 16px; gap: 10px; background: #FFF; border: 2px solid #ECECEC;
     }
+    .search-box span { color: #AFAFAF; font-weight: 500; font-size: 14px; }
+    .filter-row { display: flex; width: 100%; gap: 8px; }
+    .filter-chip {
+      padding: 8px 16px; border-radius: 20px; font-weight: 700; font-size: 12px;
+      background: #FFF; border: 2px solid #ECECEC; color: #9B8AAE;
+    }
+    .filter-chip.active { background: #3C2A4D; border-color: #3C2A4D; color: #FFF; }
 
-    /* Top bar */
-    .top-bar { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 20px 20px 14px; flex-shrink: 0; }
-    .top-bar-left { display: flex; align-items: center; gap: 12px; }
-    .back-btn { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; background: #9B8AAF; color: #FFF; font-family: 'Hiragino Sans', system-ui, sans-serif; font-size: 14px; line-height: 18px; }
-    .top-title { font-weight: 600; font-size: 15px; line-height: 18px; color: #3C2A4D; letter-spacing: 0.02em; }
-    .top-subtitle { font-size: 12px; line-height: 16px; color: #AFAFAF; font-weight: 300; }
-    .avatar-circle { width: 36px; height: 36px; border-radius: 50%; background: #9B8AAE; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #FFF; font-weight: 800; font-size: 15px; }
+    .client-list { display: flex; flex-direction: column; width: 100%; flex: 1; padding: 0 24px; gap: 10px; }
+    .client-card {
+      display: flex; align-items: center; padding: 14px; border-radius: 16px; gap: 12px;
+      background: #FFF; border: 2px solid; box-shadow: 0 3px 0;
+      cursor: pointer; transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .client-card:active { transform: translateY(2px); box-shadow: 0 1px 0; }
+    .client-card.purple { border-color: #F0E8F5; box-shadow: 0 3px 0 #F0E8F5; }
+    .client-card.teal   { border-color: #E6FFFE; box-shadow: 0 3px 0 #E6FFFE; }
+    .client-card.amber  { border-color: #FFF8EB; box-shadow: 0 3px 0 #FFF8EB; }
+    .client-avatar {
+      width: 44px; height: 44px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+      color: #FFF; font-weight: 800; font-size: 16px;
+    }
+    .client-body { display: flex; flex-direction: column; flex: 1; gap: 4px; }
+    .client-name-row { display: flex; align-items: center; gap: 8px; }
+    .client-name { font-weight: 800; font-size: 15px; color: #3C2A4D; }
+    .status-pill { padding: 3px 8px; border-radius: 10px; font-weight: 700; font-size: 10px; }
+    .client-detail { font-weight: 500; font-size: 12px; }
+    .client-date { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+    .client-date span { font-weight: 600; font-size: 10px; color: #AFAFAF; }
+    .chevron { stroke: #AFAFAF; fill: none; }
 
-    /* Hero */
-    .hero { display: flex; flex-direction: column; align-items: center; padding: 16px 24px 20px; gap: 8px; flex-shrink: 0; }
-    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .hero-avatar { width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden; background: #9B8AAE; box-shadow: 0 4px 0 #7D6E90; flex-shrink: 0; }
-    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-name { text-align: center; color: #3C2A4D; font-weight: 800; font-size: 24px; line-height: 30px; }
-    .hero-meta { text-align: center; color: #AFAFAF; font-weight: 600; font-size: 14px; line-height: 18px; }
-
-    /* Progress */
-    .progress-section { display: flex; flex-direction: column; padding: 0 24px; gap: 8px; flex-shrink: 0; }
-    .progress-header { display: flex; align-items: center; justify-content: space-between; }
-    .progress-label { color: #3C3C3C; font-weight: 700; font-size: 14px; line-height: 18px; }
-    .progress-pct { color: #E25D4E; font-weight: 800; font-size: 14px; line-height: 18px; }
-    .progress-track { width: 100%; height: 16px; border-radius: 10px; overflow: hidden; background: #FCEAE8; }
-    .progress-fill { width: 42%; height: 100%; border-radius: 10px; background: #E25D4E; box-shadow: inset 0 -3px 0 #C04538; }
-
-    /* Karte */
-    .karte-section { display: flex; flex-direction: column; padding: 20px 24px 0; gap: 12px; flex-shrink: 0; }
-    .section-title { color: #3C3C3C; font-weight: 800; font-size: 16px; line-height: 20px; }
-    .karte-card { display: flex; align-items: center; padding: 16px; border-radius: 16px; gap: 14px; border: 2px solid #E5E5E5; box-shadow: 0 3px 0 #E5E5E5; }
-    .karte-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 14px; flex-shrink: 0; }
-    .karte-icon.teal { background: #0D9488; box-shadow: 0 3px 0 #0A7A70; }
-    .karte-icon.red { background: #C41E2E; box-shadow: 0 3px 0 #9E1824; }
-    .karte-icon.amber { background: #D97706; box-shadow: 0 3px 0 #B45F05; }
-    .karte-body { display: flex; flex-direction: column; flex: 1; gap: 2px; }
-    .karte-title { color: #3C3C3C; font-weight: 700; font-size: 15px; line-height: 18px; }
-    .karte-desc { color: #AFAFAF; font-weight: 500; font-size: 12px; line-height: 16px; }
-    .karte-tags { display: flex; align-items: center; gap: 6px; }
-    .tag-amber { padding: 2px 8px; border-radius: 10px; background: #FFF8EB; color: #D97706; font-weight: 700; font-size: 10px; line-height: 12px; }
-    .badge { padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 11px; line-height: 14px; white-space: nowrap; }
-    .badge-teal { background: #E6FFFE; color: #0D9488; }
-    .badge-red { background: #FDDEDE; color: #C41E2E; }
-    .badge-amber { background: #FFF8EB; color: #D97706; }
-
-    /* Risk section */
-    .risk-section { display: flex; flex-direction: column; padding: 20px 24px 0; gap: 8px; flex-shrink: 0; }
-    .risk-hint { color: #AFAFAF; font-weight: 500; font-size: 12px; line-height: 16px; }
-    .risk-row { display: flex; align-items: center; justify-content: space-around; padding: 16px 8px; }
-    .risk-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-    .risk-circle { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 3px solid; flex-shrink: 0; }
-    .risk-circle.done { background: #9B8AAE; border-color: #7D6E90; box-shadow: 0 4px 0 #7D6E90; }
-    .risk-circle.partial { background: #D4C4E0; border-color: #B5AAC8; box-shadow: 0 4px 0 #B5AAC8; }
-    .risk-circle.empty { background: #E8E2EE; border-color: #D4C4E0; box-shadow: 0 4px 0 #D4C4E0; }
-    .risk-circle.alert { background: #C41E2E; border-color: #9E1824; box-shadow: 0 4px 0 #9E1824; }
-    .risk-label { text-align: center; font-weight: 700; font-size: 10px; line-height: 12px; }
-    .risk-label.muted { color: #9B8AAE; }
-    .risk-label.light { color: #B5AAC8; }
-    .risk-label.alert { color: #C41E2E; }
-
-    /* Spacer */
-    .flex-spacer { flex: 1; }
-
-    /* CTA */
-    .cta-section { display: flex; flex-direction: column; padding: 0 24px 32px; gap: 12px; flex-shrink: 0; }
-    .cta-primary { display: flex; width: 100%; align-items: center; justify-content: center; padding: 16px; border-radius: 16px; background: #C41E2E; box-shadow: 0 5px 0 #9E1824; color: #FFF; font-weight: 800; font-size: 16px; line-height: 20px; letter-spacing: 0.02em; cursor: pointer; border: none; }
-    .cta-row { display: flex; justify-content: center; gap: 10px; }
-    .cta-secondary { display: flex; flex: 1; align-items: center; justify-content: center; padding: 12px; border-radius: 12px; border: 2px solid #E5E5E5; box-shadow: 0 3px 0 #E5E5E5; color: #AFAFAF; font-weight: 700; font-size: 12px; line-height: 16px; }
+    .fab {
+      position: absolute; right: 24px; bottom: 28px;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #E25D4E; box-shadow: 0 5px 0 #C04538;
+      display: flex; align-items: center; justify-content: center;
+      color: #FFF; font-weight: 300; font-size: 28px;
+      cursor: pointer; transition: transform 0.1s;
+    }
+    .fab:active { transform: translateY(3px); box-shadow: 0 2px 0 #C04538; }
   </style>
 </head>
 <body>
-  <div class="phone-frame">
+  <div class="phone-frame bg-fafafa">
     <!-- Top Bar -->
     <div class="top-bar">
-      <div class="top-bar-left">
-        <div class="back-btn">←</div>
-        <span class="top-title">顧客リスト</span>
-        <span class="top-subtitle">Customer list</span>
+      <div>
+        <h1>顧客リスト</h1>
+        <div class="subtitle">Customer List</div>
       </div>
       <div class="avatar-circle">N</div>
     </div>
 
-    <!-- Hero -->
-    <div class="hero">
-      <div class="hero-inner">
-        <div class="hero-avatar">
-          <img src="https://workers.paper.design/file-assets/01KKZQET66FNYA7WNFYE6FPAVG/01KKZRFGZHBGTB8X3WHA4WKJT9.png" alt="福国 花子" />
-        </div>
-        <div class="hero-name">福国 花子</div>
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card coral">
+        <div class="stat-num" style="color:#E25D4E;">12</div>
+        <div class="stat-label" style="color:#9B8AAE;">見込み客</div>
       </div>
-      <div class="hero-meta">見込み客&ensp;・&ensp;前回訪問 3/12&ensp;・&ensp;港区</div>
-    </div>
-
-    <!-- Progress -->
-    <div class="progress-section">
-      <div class="progress-header">
-        <span class="progress-label">情報取得の進捗</span>
-        <span class="progress-pct">42%</span>
+      <div class="stat-card teal">
+        <div class="stat-num" style="color:#0D9488;">28</div>
+        <div class="stat-label" style="color:#0D9488;">既存客</div>
       </div>
-      <div class="progress-track">
-        <div class="progress-fill"></div>
+      <div class="stat-card amber">
+        <div class="stat-num" style="color:#D97706;">5</div>
+        <div class="stat-label" style="color:#D97706;">要フォロー</div>
       </div>
     </div>
 
-    <!-- 顧客カルテ -->
-    <div class="karte-section">
-      <div class="section-title">顧客カルテ</div>
-
-      <div class="karte-card">
-        <div class="karte-icon teal">
-          <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#FFF"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7" fill="#FFF"/></svg>
-        </div>
-        <div class="karte-body">
-          <div class="karte-title">基本情報</div>
-          <div class="karte-desc">35歳 ・ 女性 ・ 会社員 ・ LINE連携済</div>
-        </div>
-        <div class="badge badge-teal">取得済</div>
+    <!-- Search + Filters -->
+    <div class="search-section">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#AFAFAF" stroke-width="1.5"/><path d="M11 11l3.5 3.5" stroke="#AFAFAF" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>名前、住所、ステータスで検索...</span>
       </div>
-
-      <div class="karte-card">
-        <div class="karte-icon red">
-          <svg width="24" height="24" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="#FFF"/><line x1="8" y1="8" x2="16" y2="8" stroke="#1CB0F6" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="12" x2="14" y2="12" stroke="#1CB0F6" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="16" x2="12" y2="16" stroke="#1CB0F6" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <div class="karte-body">
-          <div class="karte-title">既契約情報</div>
-          <div class="karte-desc">自社: 医療保険α ・ 他社: 未確認</div>
-        </div>
-        <div class="badge badge-red">3件未取得</div>
-      </div>
-
-      <div class="karte-card">
-        <div class="karte-icon amber">
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2l2.5 7H22l-6 4.5 2 7.5-6-4.5-6 4.5 2-7.5L2 9h7.5z" fill="#FFF"/></svg>
-        </div>
-        <div class="karte-body">
-          <div class="karte-title">ニーズ情報</div>
-          <div class="karte-tags">
-            <span class="tag-amber">スノボ</span>
-            <span class="tag-amber">ドライブ</span>
-          </div>
-        </div>
-        <div class="badge badge-amber">取得済</div>
+      <div class="filter-row">
+        <div class="filter-chip active">全て</div>
+        <div class="filter-chip">見込み客</div>
+        <div class="filter-chip">既存客</div>
+        <div class="filter-chip">要フォロー</div>
       </div>
     </div>
 
-    <!-- 5大リスク -->
-    <div class="risk-section">
-      <div class="section-title">5大リスク ヒアリング状況</div>
-      <div class="risk-hint">未完了のリスクをタップして記録しましょう</div>
-      <div class="risk-row">
-        <div class="risk-item">
-          <div class="risk-circle done">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2L3.4 13.4 9 19 21 7l-1.4-1.4z" fill="#FFF"/></svg>
+    <!-- Client Cards -->
+    <div class="client-list">
+      <a href="profile.html">
+        <div class="client-card purple">
+          <div class="client-avatar" style="background:#9B8AAE; box-shadow:0 3px 0 #7D6E90;">福</div>
+          <div class="client-body">
+            <div class="client-name-row">
+              <span class="client-name">福国 花子</span>
+              <span class="status-pill" style="background:#FFF0EF; color:#E25D4E;">見込み客</span>
+            </div>
+            <span class="client-detail" style="color:#9B8AAE;">35歳 ・ 港区 ・ 情報取得 42%</span>
           </div>
-          <div class="risk-label muted">ケガ・病気</div>
+          <div class="client-date">
+            <span>3/12</span>
+            <svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" class="chevron" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
         </div>
-        <div class="risk-item">
-          <div class="risk-circle partial">
-            <span style="color:#FFF; font-weight:900; font-size:18px;">△</span>
+      </a>
+
+      <div class="client-card teal">
+        <div class="client-avatar" style="background:#0D9488; box-shadow:0 3px 0 #0A7A70;">田</div>
+        <div class="client-body">
+          <div class="client-name-row">
+            <span class="client-name">田中 太郎</span>
+            <span class="status-pill" style="background:#E6FFFE; color:#0D9488;">既存客</span>
           </div>
-          <div class="risk-label muted">障害</div>
+          <span class="client-detail" style="color:#0D9488;">42歳 ・ 渋谷区 ・ 更新予定 4/15</span>
         </div>
-        <div class="risk-item">
-          <div class="risk-circle empty">
-            <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="#AFAFAF" stroke-width="2"/><path d="M10 6v4" stroke="#AFAFAF" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="13" r="1" fill="#AFAFAF"/></svg>
-          </div>
-          <div class="risk-label light">介護</div>
+        <div class="client-date">
+          <span>3/10</span>
+          <svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" class="chevron" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="risk-item">
-          <div class="risk-circle done">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2L3.4 13.4 9 19 21 7l-1.4-1.4z" fill="#FFF"/></svg>
+      </div>
+
+      <div class="client-card amber">
+        <div class="client-avatar" style="background:#D97706; box-shadow:0 3px 0 #B45F05;">鈴</div>
+        <div class="client-body">
+          <div class="client-name-row">
+            <span class="client-name">鈴木 美月</span>
+            <span class="status-pill" style="background:#FFF8EB; color:#D97706;">要フォロー</span>
           </div>
-          <div class="risk-label muted">死亡・遺族</div>
+          <span class="client-detail" style="color:#D97706;">29歳 ・ 目黒区 ・ 情報取得 18%</span>
         </div>
-        <div class="risk-item">
-          <div class="risk-circle alert">
-            <span style="color:#FFF; font-weight:900; font-size:18px;">×</span>
+        <div class="client-date">
+          <span>3/8</span>
+          <svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" class="chevron" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <div class="client-card teal">
+        <div class="client-avatar" style="background:#0D9488; box-shadow:0 3px 0 #0A7A70;">佐</div>
+        <div class="client-body">
+          <div class="client-name-row">
+            <span class="client-name">佐藤 健一</span>
+            <span class="status-pill" style="background:#E6FFFE; color:#0D9488;">既存客</span>
           </div>
-          <div class="risk-label alert">老後資金</div>
+          <span class="client-detail" style="color:#0D9488;">55歳 ・ 新宿区 ・ 更新予定 5/20</span>
+        </div>
+        <div class="client-date">
+          <span>3/5</span>
+          <svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" class="chevron" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <div class="client-card purple">
+        <div class="client-avatar" style="background:#3B82F6; box-shadow:0 3px 0 #2563EB;">山</div>
+        <div class="client-body">
+          <div class="client-name-row">
+            <span class="client-name">山本 結衣</span>
+            <span class="status-pill" style="background:#FFF0EF; color:#E25D4E;">見込み客</span>
+          </div>
+          <span class="client-detail" style="color:#9B8AAE;">27歳 ・ 世田谷区 ・ 情報取得 8%</span>
+        </div>
+        <div class="client-date">
+          <span>3/1</span>
+          <svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" class="chevron" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </div>
 
-    <div class="flex-spacer"></div>
-
-    <!-- CTA -->
-    <div class="cta-section">
-      <button class="cta-primary">提案書を作成する</button>
-      <div class="cta-row">
-        <div class="cta-secondary">ライフコンパス</div>
-        <div class="cta-secondary">提案書作成</div>
-        <div class="cta-secondary">申込書</div>
-      </div>
-    </div>
+    <div class="fab">+</div>
   </div>
+
+  <div class="nav-hint">Tap 福国 花子 to view profile →</div>
 </body>
 </html>
