@@ -1,0 +1,132 @@
+.topBar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 12px;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 28px;
+  color: #3C2A4D;
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 12px;
+  color: #9B8AAE;
+}
+
+.statsRow {
+  display: flex;
+  width: 100%;
+  padding: 0 24px 16px;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.statCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  padding: 14px 8px;
+  gap: 2px;
+  background: #FFF;
+  border: 2px solid;
+}
+
+.statNum {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.statLabel {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 24px 12px;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.searchBox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: 14px;
+  padding: 12px 16px;
+  gap: 10px;
+  background: #FFF;
+  border: 2px solid #ECECEC;
+  color: #AFAFAF;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.filterRow {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.filterChip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  background: #FFF;
+  border: 2px solid #ECECEC;
+  color: #9B8AAE;
+  cursor: pointer;
+}
+
+.filterChip.active {
+  background: #3C2A4D;
+  border-color: #3C2A4D;
+  color: #FFF;
+}
+
+.clientList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  padding: 0 24px;
+  gap: 10px;
+}
+
+.fab {
+  position: absolute;
+  right: 24px;
+  bottom: 28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #E25D4E;
+  box-shadow: 0 5px 0 #C04538;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-weight: 300;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.fab:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #C04538;
+}

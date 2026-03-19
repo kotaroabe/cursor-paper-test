@@ -1,0 +1,164 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px 20px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.heroAvatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #9B8AAE;
+  box-shadow: 0 4px 0 #7D6E90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroName {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 30px;
+  color: #3C2A4D;
+  text-align: center;
+}
+
+.heroMeta {
+  font-weight: 600;
+  font-size: 14px;
+  color: #AFAFAF;
+  text-align: center;
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressLabel {
+  color: #3C3C3C;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.progressPct {
+  color: #E25D4E;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #FCEAE8;
+}
+
+.progressFill {
+  width: 42%;
+  height: 100%;
+  border-radius: 10px;
+  background: #E25D4E;
+  box-shadow: inset 0 -3px 0 #C04538;
+}
+
+.karteSection {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 0;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.riskSection {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 0;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.riskHint {
+  color: #AFAFAF;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.riskRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px 8px;
+}
+
+.ctaSection {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 32px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.ctaPrimary {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 16px;
+  background: #C41E2E;
+  box-shadow: 0 5px 0 #9E1824;
+  color: #FFF;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.ctaPrimary:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #9E1824;
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ctaSecondary {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #E5E5E5;
+  box-shadow: 0 3px 0 #E5E5E5;
+  color: #AFAFAF;
+  font-weight: 700;
+  font-size: 12px;
+}

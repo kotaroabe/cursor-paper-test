@@ -1,0 +1,77 @@
+---
+description: Fukoku Life Insurance design system and Paper MCP design knowledge
+alwaysApply: true
+---
+
+# Fukoku Life Insurance - Design System & Project Context
+
+## Project Context
+
+This project involves designing UI screens for **Fukoku Life Insurance (フコク生命)** using the Paper design tool via MCP.
+
+- The app is an **agent-facing CRM tool** for insurance agents to manage prospects and existing customers
+- "Hanako Fukoku (福国 花子)" is an example **prospect** (見込み客), not the app user
+- The agent is the user -- they view customer profiles, track info-gathering progress, assess risks, and create proposals
+
+## Brand Colors (from Fukoku Life corporate identity)
+
+- **Fukoku Purple** (logo ribbon): `#9B8AAE` / lighter `#B5AAC8` / bg `#F0E8F5`
+- **Corporate Red**: `#C41E2E` / `#9E1824` (dark)
+
+## App Color Palette
+
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Coral-red | `#E25D4E` / dark `#C04538` | Primary CTA, progress bars, 見込み客 badges |
+| Teal | `#0D9488` / dark `#0A7A70` | 基本情報, 取得済 badges, 既存客 status, ケガ・病気 risk |
+| Amber | `#D97706` / dark `#B45F05` | ニーズ情報, hobby tags, 要フォロー status, 障害 risk |
+| Blue | `#3B82F6` / dark `#2563EB` | 死亡・遺族 risk, prospect cards, 今週の予定 |
+| Purple | `#9B8AAE` / dark `#7D6E90` | Hero avatar, Fukoku brand anchor |
+| Slate grey | `#CBD5E1` / `#94A3B8` | Locked/unavailable states |
+
+## Typography
+
+- **Primary font**: `Nunito` (rounded, playful) -- used for the mobile playful screens
+- **Japanese font**: `Hiragino Sans` / `Noto Sans JP` -- used for enterprise dashboard screens
+- **Weight scale**: 500 (body), 700 (labels/names), 800-900 (headings/stats)
+
+## Design Style (Playful Version)
+
+- Duolingo-inspired with Fukoku branding
+- 3D-style buttons with thick bottom `box-shadow` (e.g. `0 5px 0 #C04538`)
+- 3D icon squares: `border-radius:14px` with colored `box-shadow`
+- Card borders: `2px solid` with matching light color + `box-shadow: 0 3px 0`
+- Progress bars: `height:6px` (inline cards) or `height:16px` (standalone) with `border-radius`
+- Status badges: pill-shaped `border-radius:10px` or `20px`
+- Avatars: Kanji initial in colored circle
+
+## Screen Flow
+
+1. **Client List** -- agent's customer list with search, filters, stat dashboard
+2. **Customer Profile** -- prospect detail with info cards, risk assessment circles, CTA
+3. **CTA Success (Confetti)** -- celebration state after creating a proposal
+
+## Customer Statuses
+
+| Status | Japanese | Color |
+|--------|----------|-------|
+| Prospect | 見込み客 | Coral-red `#E25D4E` |
+| Existing | 既存客 | Teal `#0D9488` |
+| Needs Follow-up | 要フォロー | Amber `#D97706` |
+
+## 5 Big Risks (5大リスク)
+
+1. ケガ・病気 (Injury/Illness)
+2. 障害 (Disability)
+3. 介護 (Nursing Care)
+4. 死亡・遺族 (Death/Survivor)
+5. 老後資金 (Retirement Funds)
+
+## Paper MCP Notes
+
+- Use `write_html` incrementally -- one visual group per call
+- Always call `finish_working_on_nodes` when done editing
+- Use `get_screenshot` after every 2-3 modifications to review
+- Font sizes in `px`, letter-spacing in `em`, line-height in `px`
+- Use inline styles only; `display:flex` for all layout containers
+- No `display:grid`, `display:inline`, margins, or HTML tables

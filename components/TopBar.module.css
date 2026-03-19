@@ -1,0 +1,46 @@
+.bar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 12px;
+  flex-shrink: 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #9B8AAF;
+  color: #FFF;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.backBtn:active {
+  transform: scale(0.92);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #3C2A4D;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  font-size: 12px;
+  line-height: 16px;
+  color: #AFAFAF;
+  font-weight: 300;
+}
