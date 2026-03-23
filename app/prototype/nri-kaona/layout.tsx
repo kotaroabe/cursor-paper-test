@@ -15,7 +15,16 @@ export const metadata: Metadata = {
 
 export default function NriKaonaPrototypeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${noto.variable} min-h-screen`} style={{ fontFamily: "var(--font-noto), system-ui, sans-serif" }}>
+    <div
+      className={noto.variable}
+      style={{
+        position: "fixed",
+        inset: 0,
+        overflow: "hidden",
+        background: "#F3F4F6",
+        fontFamily: "var(--font-noto), 'Noto Sans JP', system-ui, sans-serif",
+      }}
+    >
       {children}
     </div>
   );
