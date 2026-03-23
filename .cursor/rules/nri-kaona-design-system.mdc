@@ -1,0 +1,202 @@
+---
+description: NRI KAONA HR System design system. Apply when working on the HR人材情報システム screens in Paper or in Next.js.
+globs: ["**/*.tsx", "**/*.css", "**/*.html"]
+alwaysApply: false
+---
+
+# NRI KAONA Design System
+
+Derived from the NRI Journal (野村総合研究所) editorial aesthetic and the shadcn/ui component library, tailored for a desktop-first Japanese HR information system.
+
+---
+
+## Brand Context
+
+**Product**: 人材情報システム (Human Resource Information System)
+**User**: HR staff / managers on desktop browsers (1280–1440px viewport)
+**Tone**: Professional, editorial, precise — inspired by NRI's clean corporate identity
+
+---
+
+## Color Palette
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--nk-blue` | `#1A52A6` | Primary brand, active nav, selected tab indicator, primary buttons |
+| `--nk-blue-light` | `#EBF1FB` | Active tab/row background, info badge fill |
+| `--nk-blue-dark` | `#143D80` | Hover state for primary blue |
+| `--nk-black` | `#111111` | Headings, heavy CTAs, logo |
+| `--nk-gray-900` | `#171717` | Primary body text |
+| `--nk-gray-700` | `#374151` | Secondary text, nav items |
+| `--nk-gray-500` | `#6B7280` | Captions, labels, placeholder |
+| `--nk-gray-300` | `#D1D5DB` | Disabled states |
+| `--nk-gray-100` | `#F3F4F6` | Page background, active nav pill |
+| `--nk-gray-50` | `#F9FAFB` | Card inner backgrounds |
+| `--nk-white` | `#FFFFFF` | Card surface, sidebar, top bar |
+| `--nk-border` | `#E5E7EB` | All dividers, card borders, input borders |
+| `--nk-success` | `#16A34A` | Positive indicators (e.g. 卒業 badge) |
+| `--nk-success-light` | `#DCFCE7` | Success badge background |
+| `--nk-warning` | `#D97706` | Warning / pending states |
+| `--nk-category-text` | `#1D4ED8` | Category tag text |
+| `--nk-category-bg` | `#DBEAFE` | Category tag background |
+
+---
+
+## Typography
+
+**Font Stack**: `'Inter', 'Noto Sans JP', sans-serif`
+- Inter for Latin characters (all weights 250–900 available)
+- Noto Sans JP for Japanese characters (variable font, 100–900)
+
+| Role | Size | Weight | Color |
+|------|------|--------|-------|
+| App title | 13px | 700 | `#111111` |
+| Section heading | 16px | 700 | `#111111` |
+| Card title | 14px | 600 | `#111111` |
+| Body / table cell | 13px | 400 | `#171717` |
+| Label / field name | 13px | 500 | `#6B7280` |
+| Caption / metadata | 11px | 400 | `#9CA3AF` |
+| Nav item | 13px | 500 | `#374151` |
+| Badge text | 11px | 600 | varies |
+| Large stat number | 28–32px | 800 | `#111111` |
+
+---
+
+## Spacing
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--space-xs` | 4px | Inline gap between label and badge |
+| `--space-sm` | 8px | Compact rows, icon padding |
+| `--space-md` | 12px | Standard cell padding |
+| `--space-lg` | 16px | Card inner padding |
+| `--space-xl` | 24px | Section gap |
+| `--space-2xl` | 32px | Major layout gap |
+
+---
+
+## Layout
+
+### Page Shell (Desktop, 1280px)
+
+```
+┌────────────────────────────────────── 1280px ──────────────────────────────────────┐
+│  Top App Bar (56px)  [Brand] [Horizontal Nav]                     [Search] [Avatar]│
+├──────────────────────────────────────────────────────────────────────────────────── │
+│  Profile Rail (220px) │  Main Content (1060px)                                      │
+│  - Photo + name/ID    │  [Breadcrumb bar 40px]                                      │
+│  - Profile tabs       │  [Scrollable cards]                                         │
+└───────────────────────┴──────────────────────────────────────────────────────────── │
+```
+
+### Top App Bar
+- Height: 56px, `background: #FFFFFF`, `border-bottom: 1px solid #E5E7EB`
+- Left: 4-dot NRI brand icon (2×2 grid, `#1A52A6`) + product name + subtitle
+- Center: Horizontal global nav pills (ホーム, 検索, 管理, その他) — active uses `#F3F4F6` fill
+- Right: 検索結果 pill + avatar circle
+
+### Profile Rail
+- Width: 220px, Height: 100%, `background: #FFFFFF`, `border-right: 1px solid #E5E7EB`
+- Top section (padded): circular avatar placeholder + employee name (700, 15px) + ID + dept
+- Tab list (scrollable): all profile sections — active tab uses `background: #EBF1FB`, `border-left: 3px solid #1A52A6`, `color: #111111`; inactive: `color: #6B7280`
+- Tabs: 基本情報, 身上書, キャリア, スキル, 採用時情報, 勤怠情報, 自己申告, 人事記録, 審査書類, 転入時面談
+
+### Main Content Area
+- `background: #F3F4F6`, padding: 0
+- Breadcrumb bar: 40px, `background: #FFFFFF`, `border-bottom: 1px solid #E5E7EB`
+- Content padding: 20px
+
+---
+
+## Components (shadcn-inspired)
+
+### Card
+```css
+background: #FFFFFF;
+border: 1px solid #E5E7EB;
+border-radius: 8px;
+padding: 16px 20px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+```
+
+### Data Row (key–value)
+```css
+display: flex;
+padding: 8px 0;
+border-bottom: 1px solid #F3F4F6;
+/* label */ width: 180px; font-size: 13px; font-weight: 500; color: #6B7280;
+/* value */ flex: 1; font-size: 13px; color: #171717;
+```
+
+### Badge
+```css
+/* Default */ background: #F3F4F6; color: #374151; border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600;
+/* Blue */    background: #DBEAFE; color: #1D4ED8;
+/* Green */   background: #DCFCE7; color: #16A34A;
+```
+
+### Tab (horizontal sub-tabs)
+```css
+/* Active */ border-bottom: 2px solid #1A52A6; color: #1A52A6; font-weight: 600;
+/* Inactive */ color: #6B7280; font-weight: 400;
+padding: 8px 16px; font-size: 13px;
+```
+
+### Stat Card
+```css
+background: #FFFFFF;
+border: 1px solid #E5E7EB;
+border-radius: 8px;
+padding: 12px 16px;
+/* Top label */ font-size: 12px; font-weight: 700; color: #111111; border-bottom: 1px solid #E5E7EB; padding-bottom: 8px;
+/* Sub-label */ font-size: 10px; color: #1A52A6; font-weight: 500;
+/* Number */ font-size: 28px; font-weight: 800; color: #111111;
+```
+
+### Table
+```css
+width: 100%;
+border-collapse: collapse;
+/* Header */ background: #F9FAFB; font-size: 11px; font-weight: 600; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; border-bottom: 1px solid #E5E7EB;
+/* Cell */ font-size: 13px; color: #171717; padding: 10px 12px; border-bottom: 1px solid #F3F4F6;
+```
+
+---
+
+## Screen Inventory
+
+| Screen | Tab | Key Content | Width |
+|--------|-----|-------------|-------|
+| HR 基本情報 - NRI KAONA | 基本情報 | Two-column KV table + stat cards | 1280px |
+| HR 身上書 - NRI KAONA | 身上書 | 5 segmented cards (社員情報, 本人情報, 現住所・連絡先, 家族・実家, 学歴) | 1280px |
+| HR スキル - NRI KAONA | スキル > 能力チャート | Tabs + 7-axis radar chart SVG + score grid | 1280px |
+
+---
+
+## Data Reference (松本 恒一, M0001)
+
+**基本情報**
+- 社員番号: M0001 / 従業員番号: 10133548 / 氏名: 松本 恒一 / 氏名（かな）: まつもと　こういち
+- 氏名（ローマ字）: Matumoto Kouiti / 役職: 課長 / 入社日: 19760401 / 年次: 76B
+- 性別: 男 / 年齢: 63 / 生年月日: 1940/11/11 / 等級: 等級B / 人事メモ記号: ☆
+- 会社名: 株式会社サンプル / 所属本部: 管理本部 / 所属部: 経理財務部 / 所属グループ: 財務課
+- 部長: 部長 名前 / 課（案）長/GM: GM 名前 / キャリアフィールド: キャリアフィールド名 / 本部役割区分: 役割区分
+- メールアドレス: koichi.matsumoto@example.co.jp / 勤続年数: 8年9ヶ月 / 総合評価: S
+
+**身上書**
+- 社員番号: M0001 / 性別: 男 / 会社名: 株式会社サンプル / 従業員番号: 10133548 / 年齢: 85 / 所属名: 経理財務部
+- 所属本部: 管理本部 / 入社日: 19760401 / 年次: 76B / 役職名: 課長 / 等級: 等級B
+- 生年月日: 1984-05-12 / 婚姻日: 2012-06-15 / 戸籍氏名（漢字）: 東京都 / 戸籍氏名（かな）: とうきょうと
+- 現住所 〒: 100-0001 / 電話番号: 03-1111-0001 / 住所: 東京都千代田区千代田1-1-1
+- 住所（かな）: とうきょうとちよだくちよだ1-1-1 / 住居区分: 持家 / 住所変更日: 2024-04-01
+- 緊急連絡先: 090-1111-0001 / 続柄: 配偶者 / 緊急連絡先氏名: 山田 由美
+- 単身赴任先 〒: 530-0001 / 住所: 大阪府大阪市北区梅田2-2-2 / 住所（かな）: おおさかふおおさかしきたくうめだ2-2-2 / 住所変更日: 2023-10-01
+- 通勤時間: 35分 / 住居区分: 社宅 / 最寄駅: 東京駅
+- 本人実家 〒: 150-0001 / 電話番号: 090-1111-9001 / 住所: 東京都渋谷区神宮前2-2-2 / 住所（かな）: とうきょうとしぶやくじんぐうまえ2-2-2
+- 配偶者実家 〒: 150-0001 / 電話番号: 0422-11-0001 / 住所: 東京都武蔵野市吉祥寺3-3-3 / 住所（かな）: とうきょうとむさしのしきちじょうじ3-3-3 / 続柄: 長姉
+- 学歴: AAA / AAA学部 / AAA学科 / AAA学歴 / 1997/04 / 2000/03 / note / 卒業
+- 学歴: BBB / BBB学部 / BBB学科 / AAA学歴 / 1997/04 / 2000/03 / note / 卒業
+
+**スキル（能力チャート）**
+- AWS: 4.4/5 / Java: 4.6/5 / React: 4.1/5 / SQL: 4.3/5 / Docker: 3.8/5 / 設計力: 4.2/5 / リーダーシップ: 3.9/5
+- Tabs: 能力チャート / 資格情報・速学情報 / 講座受講情報 / 対外発表

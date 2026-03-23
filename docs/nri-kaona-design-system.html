@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NRI KAONA Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --nk-blue: #1a52a6;
+      --nk-blue-light: #ebf1fb;
+      --nk-blue-dark: #143d80;
+      --nk-black: #111111;
+      --nk-gray-900: #171717;
+      --nk-gray-700: #374151;
+      --nk-gray-500: #6b7280;
+      --nk-gray-300: #d1d5db;
+      --nk-gray-100: #f3f4f6;
+      --nk-gray-50: #f9fafb;
+      --nk-white: #ffffff;
+      --nk-border: #e5e7eb;
+      --nk-success: #16a34a;
+      --nk-success-light: #dcfce7;
+      --nk-warning: #d97706;
+      --nk-category-text: #1d4ed8;
+      --nk-category-bg: #dbeafe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
+      background: var(--nk-gray-100);
+      color: var(--nk-gray-900);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 32px 24px 48px; display: flex; flex-direction: column; gap: 24px; }
+    .card {
+      background: var(--nk-white);
+      border: 1px solid var(--nk-border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--nk-black);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--nk-border);
+    }
+    .hero-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .dots { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 20px; height: 20px; }
+    .dots span { background: var(--nk-blue); border-radius: 2px; }
+    .hero-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--nk-black); }
+    .hero-sub { font-size: 11px; font-weight: 600; color: var(--nk-blue); letter-spacing: 0.12em; }
+    .muted { font-size: 13px; color: var(--nk-gray-500); }
+    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    .swatch { display: flex; flex-direction: column; gap: 6px; }
+    .swatch .chip { width: 120px; height: 44px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.06); }
+    .swatch .name { font-size: 11px; font-weight: 600; color: var(--nk-gray-700); }
+    .swatch .hex { font-size: 10px; color: #9ca3af; }
+    pre.shell {
+      font-size: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--nk-gray-50);
+      border: 1px solid var(--nk-border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      overflow: auto;
+      color: var(--nk-gray-700);
+      line-height: 1.45;
+    }
+    .type-row { display: flex; align-items: baseline; gap: 16px; margin-bottom: 10px; }
+    .type-row .role { width: 140px; flex-shrink: 0; font-size: 11px; font-weight: 600; color: var(--nk-gray-500); }
+    .spacing-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .spacing-row span { width: 72px; font-size: 12px; color: var(--nk-gray-500); }
+    .spacing-row .bar { height: 16px; background: var(--nk-blue); border-radius: 2px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+    .tabs { display: flex; border-bottom: 1px solid var(--nk-border); margin-top: 8px; }
+    .tab { padding: 8px 16px; font-size: 13px; color: var(--nk-gray-500); }
+    .tab.active { color: var(--nk-blue); font-weight: 600; border-bottom: 2px solid var(--nk-blue); margin-bottom: -1px; }
+    .stat-mini { flex: 1; border: 1px solid var(--nk-border); border-radius: 8px; padding: 12px 16px; }
+    .stat-mini .t { font-size: 12px; font-weight: 700; border-bottom: 1px solid var(--nk-border); padding-bottom: 8px; margin-bottom: 8px; }
+    .stat-mini .s { font-size: 10px; color: var(--nk-blue); font-weight: 600; }
+    .stat-mini .n { font-size: 28px; font-weight: 800; color: var(--nk-black); }
+    .footer-dark { background: var(--nk-black); color: #fff; border-radius: 10px; padding: 16px 20px; }
+    .footer-dark p { margin: 0; font-size: 11px; color: #d1d5db; line-height: 1.5; }
+    .footer-dark strong { font-size: 12px; display: block; margin-bottom: 6px; }
+    a { color: var(--nk-blue); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="hero-brand">
+        <div class="dots"><span></span><span></span><span></span><span></span></div>
+        <div>
+          <div class="hero-title">NRI KAONA</div>
+          <div class="hero-sub">DESIGN SYSTEM</div>
+        </div>
+      </div>
+      <p class="muted">Visual reference for <code>.cursor/rules/nri-kaona-design-system.mdc</code>. NRI Journal editorial tone + shadcn-style components. Desktop HR 人材情報システム (1280–1440px).</p>
+    </div>
+
+    <div class="card">
+      <h2>Brand context</h2>
+      <p class="muted" style="margin:0 0 8px;"><strong style="color:var(--nk-gray-700)">Product:</strong> 人材情報システム</p>
+      <p class="muted" style="margin:0 0 8px;"><strong style="color:var(--nk-gray-700)">User:</strong> HR staff / managers, desktop browsers</p>
+      <p class="muted" style="margin:0;"><strong style="color:var(--nk-gray-700)">Tone:</strong> Professional, editorial, precise (NRI corporate)</p>
+    </div>
+
+    <div class="card">
+      <h2>Color palette</h2>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="chip" style="background:#1A52A6"></div><span class="name">--nk-blue</span><span class="hex">#1A52A6</span></div>
+        <div class="swatch"><div class="chip" style="background:#EBF1FB;border-color:#E5E7EB"></div><span class="name">--nk-blue-light</span><span class="hex">#EBF1FB</span></div>
+        <div class="swatch"><div class="chip" style="background:#143D80"></div><span class="name">--nk-blue-dark</span><span class="hex">#143D80</span></div>
+        <div class="swatch"><div class="chip" style="background:#111111"></div><span class="name">--nk-black</span><span class="hex">#111111</span></div>
+        <div class="swatch"><div class="chip" style="background:#171717"></div><span class="name">--nk-gray-900</span><span class="hex">#171717</span></div>
+        <div class="swatch"><div class="chip" style="background:#374151"></div><span class="name">--nk-gray-700</span><span class="hex">#374151</span></div>
+        <div class="swatch"><div class="chip" style="background:#6B7280"></div><span class="name">--nk-gray-500</span><span class="hex">#6B7280</span></div>
+        <div class="swatch"><div class="chip" style="background:#D1D5DB"></div><span class="name">--nk-gray-300</span><span class="hex">#D1D5DB</span></div>
+        <div class="swatch"><div class="chip" style="background:#F3F4F6;border-color:#E5E7EB"></div><span class="name">--nk-gray-100</span><span class="hex">#F3F4F6</span></div>
+        <div class="swatch"><div class="chip" style="background:#F9FAFB;border-color:#E5E7EB"></div><span class="name">--nk-gray-50</span><span class="hex">#F9FAFB</span></div>
+        <div class="swatch"><div class="chip" style="background:#FFFFFF;border-color:#E5E7EB"></div><span class="name">--nk-white</span><span class="hex">#FFFFFF</span></div>
+        <div class="swatch"><div class="chip" style="background:#F9FAFB;border:2px solid #E5E7EB"></div><span class="name">--nk-border</span><span class="hex">#E5E7EB</span></div>
+        <div class="swatch"><div class="chip" style="background:#16A34A"></div><span class="name">--nk-success</span><span class="hex">#16A34A</span></div>
+        <div class="swatch"><div class="chip" style="background:#DCFCE7;border-color:#BBF7D0"></div><span class="name">--nk-success-light</span><span class="hex">#DCFCE7</span></div>
+        <div class="swatch"><div class="chip" style="background:#D97706"></div><span class="name">--nk-warning</span><span class="hex">#D97706</span></div>
+        <div class="swatch"><div class="chip" style="background:#DBEAFE;border-color:#BFDBFE"></div><span class="name">category bg</span><span class="hex">#DBEAFE / #1D4ED8</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Typography</h2>
+      <p class="muted" style="margin-top:0">Stack: Inter, Noto Sans JP</p>
+      <div class="type-row"><span class="role">App title 13/700</span><span style="font-size:13px;font-weight:700;color:#111">人材情報システム</span></div>
+      <div class="type-row"><span class="role">Section 16/700</span><span style="font-size:16px;font-weight:700;color:#111">基本情報</span></div>
+      <div class="type-row"><span class="role">Card 14/600</span><span style="font-size:14px;font-weight:600;color:#111">スキルチャート</span></div>
+      <div class="type-row"><span class="role">Body 13/400</span><span style="font-size:13px;color:#171717">本文・表セル用のスタイルです。</span></div>
+      <div class="type-row"><span class="role">Label 13/500</span><span style="font-size:13px;font-weight:500;color:#6B7280">社員番号</span></div>
+      <div class="type-row"><span class="role">Caption 11/400</span><span style="font-size:11px;color:#9CA3AF">2026-03-16 | NRI KAONA</span></div>
+      <div class="type-row"><span class="role">Stat 32/800</span><span style="font-size:32px;font-weight:800;color:#111">8年9ヶ月</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Spacing scale</h2>
+      <div class="spacing-row"><span>xs 4</span><div class="bar" style="width:4px"></div></div>
+      <div class="spacing-row"><span>sm 8</span><div class="bar" style="width:8px"></div></div>
+      <div class="spacing-row"><span>md 12</span><div class="bar" style="width:12px"></div></div>
+      <div class="spacing-row"><span>lg 16</span><div class="bar" style="width:16px"></div></div>
+      <div class="spacing-row"><span>xl 24</span><div class="bar" style="width:24px"></div></div>
+      <div class="spacing-row"><span>2xl 32</span><div class="bar" style="width:32px"></div></div>
+    </div>
+
+    <div class="card">
+      <h2>Page shell (1280px desktop)</h2>
+      <pre class="shell">+-- Top App Bar (56px) -------------------------------------------+
+| [Brand]  ホーム 検索 管理 その他              検索結果  [Avatar] |
++----------------------------------------------------------------+
+| Profile Rail | Breadcrumb (40px)                               |
+| (220px)      +-------------------------------------------------+
+|              | Main content (cards, scroll)                   |
++--------------+-------------------------------------------------+</pre>
+      <p class="muted" style="margin:12px 0 0">Top bar: white bg, border-bottom #E5E7EB. Rail: active tab #EBF1FB + 3px #1A52A6 left. Content bg #F3F4F6.</p>
+    </div>
+
+    <div class="card">
+      <h2>Components (shadcn baseline)</h2>
+      <div class="card" style="box-shadow:none;margin-bottom:16px">
+        <strong style="font-size:12px">Card</strong>
+        <p class="muted" style="margin:8px 0 0;font-size:12px">radius 8px, border #E5E7EB, shadow sm</p>
+      </div>
+      <div style="border-bottom:1px solid #F3F4F6;padding:8px 0;display:flex;gap:16px">
+        <span style="width:160px;flex-shrink:0;font-size:13px;font-weight:500;color:#6B7280">Data row label</span>
+        <span style="font-size:13px;color:#171717">Value text</span>
+      </div>
+      <div class="badges" style="margin-top:16px">
+        <span class="badge" style="background:#F3F4F6;color:#374151">Default</span>
+        <span class="badge" style="background:#DBEAFE;color:#1D4ED8">Category</span>
+        <span class="badge" style="background:#DCFCE7;color:#16A34A">卒業</span>
+      </div>
+      <div class="tabs">
+        <div class="tab active">能力チャート</div>
+        <div class="tab">資格情報</div>
+        <div class="tab">講座</div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:16px">
+        <div class="stat-mini">
+          <div class="t">勤続年数</div>
+          <div class="s">在籍期間</div>
+          <div class="n">8年9ヶ月</div>
+        </div>
+        <div class="stat-mini" style="background:#F9FAFB">
+          <div style="display:flex;font-size:11px;font-weight:600;color:#6B7280;padding:6px 0;border-bottom:1px solid #E5E7EB">
+            <span style="flex:1">COL</span><span style="flex:1">VAL</span>
+          </div>
+          <div style="display:flex;padding:8px 0;font-size:13px;color:#171717">
+            <span style="flex:1">出身地</span><span style="flex:1">AAA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Screen inventory (Paper artboards)</h2>
+      <ul class="muted" style="margin:0;padding-left:20px">
+        <li><strong style="color:var(--nk-blue)">HR 基本情報 - NRI KAONA</strong> — Two-column KV + stat cards · 1280×800</li>
+        <li><strong style="color:var(--nk-blue)">HR 身上書 - NRI KAONA</strong> — 5 segmented cards + 学歴 table · 1280×1120</li>
+        <li><strong style="color:var(--nk-blue)">HR スキル - NRI KAONA</strong> — Sub-tabs + radar + score bars · 1280×800</li>
+        <li><strong style="color:var(--nk-blue)">NRI KAONA — Design System</strong> — This reference board on Paper (NRI_KAONA page)</li>
+      </ul>
+    </div>
+
+    <div class="footer-dark">
+      <strong>Source of truth</strong>
+      <p>Markdown + tokens: <code style="color:#fff">.cursor/rules/nri-kaona-design-system.mdc</code><br />
+      Paper canvases are not in git; open this HTML locally or deploy <code style="color:#fff">docs/</code> as static files.</p>
+    </div>
+  </div>
+</body>
+</html>
