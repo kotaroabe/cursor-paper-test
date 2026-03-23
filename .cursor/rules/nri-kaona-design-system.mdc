@@ -51,14 +51,16 @@ Derived from the NRI Journal (野村総合研究所) editorial aesthetic and the
 | Role | Size | Weight | Color |
 |------|------|--------|-------|
 | App title | 13px | 700 | `#111111` |
-| Section heading | 16px | 700 | `#111111` |
-| Card title | 14px | 600 | `#111111` |
+| Section heading (card) | 16px | 700 | `#111111` |
+| Subsection / 身上書セクション見出し | 13px | 700 | `#1A52A6` |
 | Body / table cell | 13px | 400 | `#171717` |
 | Label / field name | 13px | 500 | `#6B7280` |
 | Caption / metadata | 11px | 400 | `#9CA3AF` |
 | Nav item | 13px | 500 | `#374151` |
 | Badge text | 11px | 600 | varies |
-| Large stat number | 28–32px | 800 | `#111111` |
+| Large stat number | 32px / 40px | 800 | `#111111` |
+
+**Click-through HTML prototype**: `public/nri-kaona/index.html` — left rail switches **基本情報 / 身上書 / スキル / キャリア / 自己申告** (vanilla JS in `app.js`). Deployed at `/nri-kaona` on Vercel.
 
 ---
 

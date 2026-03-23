@@ -50,10 +50,10 @@
             <button type="button" class="rail-btn is-active" data-panel="basic">基本情報</button>
             <button type="button" class="rail-btn" data-panel="shinjosho">身上書</button>
             <button type="button" class="rail-btn" data-panel="skills">スキル</button>
-            <button type="button" class="rail-btn" disabled>キャリア</button>
+            <button type="button" class="rail-btn" data-panel="career">キャリア</button>
             <button type="button" class="rail-btn" disabled>採用時情報</button>
             <button type="button" class="rail-btn" disabled>勤怠情報</button>
-            <button type="button" class="rail-btn" disabled>自己申告</button>
+            <button type="button" class="rail-btn" data-panel="jiko">自己申告</button>
             <button type="button" class="rail-btn" disabled>人事記録</button>
             <button type="button" class="rail-btn" disabled>審査書類</button>
             <button type="button" class="rail-btn" disabled>転入時面談</button>
@@ -72,6 +72,9 @@
             <div class="crumb-actions hidden" id="crumb-shinjosho-actions">
               <button type="button" class="btn-outline">過去変更日</button>
               <button type="button" class="btn-primary">編集</button>
+            </div>
+            <div class="crumb-actions hidden" id="crumb-back-actions">
+              <button type="button" class="btn-outline" style="padding: 6px 14px; font-size: 12px">戻る</button>
             </div>
           </div>
 
@@ -271,8 +274,8 @@
                     </p>
                   </div>
                   <div class="skill-tools">
-                    <button type="button" class="btn-outline" style="font-size: 11px; padding: 5px 12px">Tech Profile</button>
-                    <button type="button" class="btn-outline" style="font-size: 11px; padding: 5px 12px">7 Axis Radar</button>
+                    <button type="button" class="btn-outline" style="font-size: 12px; padding: 5px 12px">Tech Profile</button>
+                    <button type="button" class="btn-outline" style="font-size: 12px; padding: 5px 12px">7 Axis Radar</button>
                   </div>
                 </div>
                 <div style="margin-bottom: 16px">
@@ -379,6 +382,246 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <!-- —— キャリア —— -->
+            <div class="panel" id="panel-career">
+              <div class="card">
+                <div class="career-hero-inner">
+                  <div class="career-photo" aria-hidden="true">写真</div>
+                  <div>
+                    <div class="career-name">松 本 恒 一</div>
+                    <div class="career-email">matumoto koichi / koichi.matsumoto@example.co.jp</div>
+                    <div class="career-badges">
+                      <span class="career-badge-pill">マネジメント (M+)</span>
+                      <span class="career-meta-muted">社員番号: 10133548</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="career-section-title">所属・役割情報</div>
+                <div class="career-aff-grid">
+                  <div class="career-aff-item">
+                    <div class="career-aff-label">会社名</div>
+                    <div class="career-aff-value">株式会社サンプル</div>
+                  </div>
+                  <div class="career-aff-item">
+                    <div class="career-aff-label">所属名</div>
+                    <div class="career-aff-value">経理財務部（本社勤務）</div>
+                  </div>
+                  <div class="career-aff-item">
+                    <div class="career-aff-label">キャリアフィールド</div>
+                    <div class="career-aff-value link">財務・管理会計</div>
+                  </div>
+                  <div class="career-aff-item">
+                    <div class="career-aff-label">入社日</div>
+                    <div class="career-aff-value">1976/04/01</div>
+                  </div>
+                  <div class="career-aff-item">
+                    <div class="career-aff-label">本部役割区分</div>
+                    <div class="career-aff-value muted">未設定</div>
+                  </div>
+                  <div class="career-aff-item">
+                    <div class="career-aff-label">課(室)長/GM</div>
+                    <div class="career-aff-value muted">未設定</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="career-table-toolbar">
+                  <span class="career-table-title">1. 異動履歴</span>
+                  <div class="career-filter">
+                    <span>異動歴表示設定:</span>
+                    <select aria-label="異動歴表示設定">
+                      <option>シニアアソシエイト以下を表示</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="career-table">
+                  <div class="career-thead">
+                    <span class="career-col-date">発令日</span>
+                    <span class="career-col-aff">所属名</span>
+                    <span class="career-col-role">役職</span>
+                    <span class="career-col-title">肩書</span>
+                  </div>
+                  <div class="career-row">
+                    <span class="career-col-date">2024/04/01</span>
+                    <span class="career-col-aff">経理財務部 / 財務課</span>
+                    <span class="career-col-role">課長</span>
+                    <span class="career-col-title">-</span>
+                  </div>
+                  <div class="career-row alt">
+                    <span class="career-col-date">2020/04/01</span>
+                    <span class="career-col-aff">経理財務部 / 財務課</span>
+                    <span class="career-col-role">主任</span>
+                    <span class="career-col-title">-</span>
+                  </div>
+                  <div class="career-row">
+                    <span class="career-col-date">2015/04/01</span>
+                    <span class="career-col-aff">経理財務部 / 管理会計グループ</span>
+                    <span class="career-col-role">担当</span>
+                    <span class="career-col-title">-</span>
+                  </div>
+                  <div class="career-row alt">
+                    <span class="career-col-date">2005/04/01</span>
+                    <span class="career-col-aff">経理部 / 財務グループ</span>
+                    <span class="career-col-role">担当</span>
+                    <span class="career-col-title">-</span>
+                  </div>
+                  <div class="career-row">
+                    <span class="career-col-date">1976/04/01</span>
+                    <span class="career-col-aff">経理部</span>
+                    <span class="career-col-role">新入社員</span>
+                    <span class="career-col-title">-</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="career-section-title">2. 委員会委嘱歴</div>
+                <div class="empty-state-dashed">登録されている委嘱履歴はありません</div>
+              </div>
+            </div>
+
+            <!-- —— 自己申告 —— -->
+            <div class="panel" id="panel-jiko">
+              <div class="jiko-page-head">
+                <div>
+                  <div class="jiko-page-title">自己申告書</div>
+                  <div class="jiko-page-sub">エキスパート職・アソシエイト職 向け</div>
+                </div>
+                <button type="button" class="btn-outline" style="padding: 8px 14px; font-size: 13px">戻る</button>
+              </div>
+
+              <div class="jiko-form-card">
+                <span class="jiko-section-tag">A. 現在の業務について</span>
+                <div style="margin-bottom: 18px">
+                  <span class="jiko-label">1. 現在の業務内容について</span>
+                  <p class="jiko-hint">自身の立場・役割をふまえて具体的に記入してください。</p>
+                  <div class="jiko-fake-input tall">全角300文字以内</div>
+                </div>
+                <div style="margin-bottom: 18px">
+                  <span class="jiko-label">2. 現在の業務の年月数</span>
+                  <div class="jiko-row-inline" style="margin-top: 8px">
+                    <div class="jiko-fake-select" style="width: 88px">0</div>
+                    <span style="font-size: 13px; font-weight: 500; color: var(--nk-label)">年</span>
+                    <div class="jiko-fake-select" style="width: 88px">0</div>
+                    <span style="font-size: 13px; font-weight: 500; color: var(--nk-label)">ヶ月</span>
+                  </div>
+                </div>
+                <div class="jiko-two-col">
+                  <div>
+                    <span class="jiko-label">3. 業務満足度</span>
+                    <div class="jiko-fake-select">選択してください</div>
+                    <p class="jiko-option-hint">満足している / 概ね満足している / あまり満足していない / 満足していない</p>
+                  </div>
+                  <div>
+                    <span class="jiko-label">4. 能力発揮度</span>
+                    <div class="jiko-fake-select">選択してください</div>
+                    <p class="jiko-option-hint">充分発揮できている / 概ね発揮できている / あまり発揮できていない / 発揮できていない</p>
+                  </div>
+                </div>
+                <div style="margin-top: 18px">
+                  <span class="jiko-label">5. 仕事を通じた自身の成長実感</span>
+                  <p class="jiko-hint">過去1〜2年を振り返り、理由とあわせて記入してください。</p>
+                  <div class="jiko-fake-select" style="margin-bottom: 8px">実感の程度を選択</div>
+                  <p class="jiko-option-hint">充分実感できている / 概ね実感できている / あまり実感できていない</p>
+                  <div class="jiko-fake-input tall" style="margin-top: 8px">成長の理由や背景を記入</div>
+                </div>
+              </div>
+
+              <div class="jiko-form-card">
+                <span class="jiko-section-tag">B. 業務環境について</span>
+                <div class="jiko-eval-table">
+                  <div class="jiko-eval-head">
+                    <span style="flex: 1">評価項目</span>
+                    <span class="jiko-eval-sel">自己評価</span>
+                  </div>
+                  <div class="jiko-eval-row">
+                    <span class="jiko-eval-q">1) 業務時間について</span>
+                    <div class="jiko-eval-sel"><div class="jiko-fake-select" style="min-height: 32px; padding: 6px 8px">選択...</div></div>
+                  </div>
+                  <div class="jiko-eval-row">
+                    <span class="jiko-eval-q">2) 人間関係について</span>
+                    <div class="jiko-eval-sel"><div class="jiko-fake-select" style="min-height: 32px; padding: 6px 8px">選択...</div></div>
+                  </div>
+                  <div class="jiko-eval-row">
+                    <span class="jiko-eval-q">3) 上司とのコミュニケーション</span>
+                    <div class="jiko-eval-sel"><div class="jiko-fake-select" style="min-height: 32px; padding: 6px 8px">選択...</div></div>
+                  </div>
+                  <div class="jiko-eval-row">
+                    <span class="jiko-eval-q">4) オフィス環境</span>
+                    <div class="jiko-eval-sel"><div class="jiko-fake-select" style="min-height: 32px; padding: 6px 8px">選択...</div></div>
+                  </div>
+                  <div class="jiko-eval-row">
+                    <span class="jiko-eval-q">5) 組織の活気</span>
+                    <div class="jiko-eval-sel"><div class="jiko-fake-select" style="min-height: 32px; padding: 6px 8px">選択...</div></div>
+                  </div>
+                </div>
+                <div style="margin-top: 14px">
+                  <span class="jiko-label">補足・伝えたいこと</span>
+                  <div class="jiko-fake-input tall" style="min-height: 80px">1)〜5)について補足があれば記入</div>
+                </div>
+              </div>
+
+              <div class="jiko-form-card">
+                <span class="jiko-section-tag">C. キャリアパスについて</span>
+                <div style="margin-bottom: 16px">
+                  <span class="jiko-label">1. 今後のキャリアと現在の業務の整合性</span>
+                  <div class="jiko-fake-select">選択してください</div>
+                  <p class="jiko-option-hint">現在の業務を通じて、キャリアを実現できそう / 他部署の業務への従事を希望する</p>
+                </div>
+                <div class="jiko-nested">
+                  <span class="jiko-label">2. 人事異動の希望</span>
+                  <div class="jiko-fake-select" style="margin-bottom: 8px">希望を選択</div>
+                  <p class="jiko-option-hint">今の業務を継続したい / 1〜2年以内には他業務に就きたい</p>
+                  <p class="jiko-hint" style="margin: 14px 0 8px; font-weight: 700; color: #94a3b8; font-size: 11px; letter-spacing: 0.02em">希望する組織・職務</p>
+                  <div class="jiko-row-inline">
+                    <label>第1希望</label>
+                    <div class="jiko-fake-select" style="min-height: 32px"></div>
+                  </div>
+                  <div class="jiko-row-inline">
+                    <label>第2希望</label>
+                    <div class="jiko-fake-select" style="min-height: 32px"></div>
+                  </div>
+                </div>
+                <div style="margin-top: 16px">
+                  <span class="jiko-label">3. 上司によるキャリア理解・支援状況</span>
+                  <div class="jiko-fake-select">選択してください</div>
+                  <p class="jiko-option-hint">理解しており、適切な支援を受けている / 理解しているが、支援は不十分 / 理解されていない</p>
+                </div>
+              </div>
+
+              <div class="jiko-de-row">
+                <div class="jiko-form-card">
+                  <span class="jiko-section-tag">D. 人事制度について</span>
+                  <div style="margin-bottom: 14px">
+                    <span class="jiko-hint" style="font-weight: 700; color: #64748b; margin-bottom: 6px; display: block">評価結果への納得感</span>
+                    <div class="jiko-fake-select">納得している / どちらともいえない</div>
+                  </div>
+                  <div>
+                    <span class="jiko-hint" style="font-weight: 700; color: #64748b; margin-bottom: 6px; display: block">フィードバック面談の実施</span>
+                    <div class="jiko-fake-select">すべて受けている / 一部受けていない</div>
+                  </div>
+                </div>
+                <div class="jiko-form-card">
+                  <span class="jiko-section-tag">E. 自身の健康状態等</span>
+                  <div style="margin-bottom: 14px">
+                    <span class="jiko-hint" style="font-weight: 700; color: #64748b; margin-bottom: 6px; display: block">健康状態</span>
+                    <div class="jiko-fake-select">良好 / 懸念あり</div>
+                  </div>
+                  <div class="jiko-fake-input tall" style="min-height: 60px; font-size: 12px">特記事項（家庭事情等）があれば記入</div>
+                </div>
+              </div>
+
+              <div class="jiko-footer-actions">
+                <span class="jiko-privacy">入力内容は、上司および人事担当者のみが閲覧可能です。</span>
+                <button type="button" class="btn-secondary">一時保存</button>
+                <button type="button" class="btn-submit">内容を送信する</button>
               </div>
             </div>
           </div>
