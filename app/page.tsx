@@ -38,9 +38,6 @@ export default function ClientListPage() {
         <Link href="/nri-kaona" className={styles.protoLink}>
           人材情報システム（NRI KAONA）デスクトップ版を開く
         </Link>
-        <Link href="/kaona/career.html" className={styles.protoLinkMuted}>
-          KAONA · キャリア / 自己申告（HTML）
-        </Link>
       </div>
 
       {/* Stats */}

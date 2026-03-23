@@ -203,11 +203,6 @@ body {
   padding: 8px;
 }
 
-a.rail-btn {
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
 .rail-btn {
   display: block;
   width: 100%;
