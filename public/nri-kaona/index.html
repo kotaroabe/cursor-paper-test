@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NRI KAONA — 人材情報システム（Paper準拠）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Top app bar (Paper: HR 基本情報 - NRI KAONA) -->
+      <header class="topbar">
+        <div class="topbar-brand">
+          <div class="brand-dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div>
+            <div class="brand-title">人材情報システム</div>
+            <div class="brand-sub">HUMAN RESOURCE</div>
+          </div>
+        </div>
+        <nav class="topbar-nav" aria-label="グローバル">
+          <button type="button" class="is-active">ホーム</button>
+          <button type="button">検索</button>
+          <button type="button">管理</button>
+          <button type="button">その他</button>
+        </nav>
+        <div class="topbar-right">
+          <span class="pill-muted">検索結果</span>
+          <div class="avatar-sm" aria-hidden="true">HK</div>
+        </div>
+      </header>
+
+      <div class="body">
+        <!-- Profile rail 220px -->
+        <aside class="rail">
+          <div class="rail-profile">
+            <div class="rail-avatar">松</div>
+            <div class="rail-name">松本 恒一</div>
+            <div class="rail-meta">M0001</div>
+            <div class="rail-meta">経理財務部</div>
+          </div>
+          <nav class="rail-nav" aria-label="プロフィール">
+            <button type="button" class="rail-btn is-active" data-panel="basic">基本情報</button>
+            <button type="button" class="rail-btn" data-panel="shinjosho">身上書</button>
+            <button type="button" class="rail-btn" data-panel="skills">スキル</button>
+            <button type="button" class="rail-btn" disabled>キャリア</button>
+            <button type="button" class="rail-btn" disabled>採用時情報</button>
+            <button type="button" class="rail-btn" disabled>勤怠情報</button>
+            <button type="button" class="rail-btn" disabled>自己申告</button>
+            <button type="button" class="rail-btn" disabled>人事記録</button>
+            <button type="button" class="rail-btn" disabled>審査書類</button>
+            <button type="button" class="rail-btn" disabled>転入時面談</button>
+          </nav>
+        </aside>
+
+        <main class="main">
+          <div class="crumb">
+            <span class="sep">ホーム</span>
+            <span class="sep">/</span>
+            <span class="sep">検索</span>
+            <span class="sep">/</span>
+            <strong>松本 恒一</strong>
+            <span class="sep">/</span>
+            <strong class="current" id="crumb-current">基本情報</strong>
+            <div class="crumb-actions hidden" id="crumb-shinjosho-actions">
+              <button type="button" class="btn-outline">過去変更日</button>
+              <button type="button" class="btn-primary">編集</button>
+            </div>
+          </div>
+
+          <div class="subtabs hidden" id="skill-subtabs" aria-hidden="true">
+            <button type="button" class="subtab is-active">能力チャート</button>
+            <button type="button" class="subtab">資格情報・語学情報</button>
+            <button type="button" class="subtab">講座受講情報</button>
+            <button type="button" class="subtab">対外発表</button>
+          </div>
+
+          <div class="content">
+            <!-- —— 基本情報 —— -->
+            <div class="panel is-visible" id="panel-basic">
+              <div class="card">
+                <div class="card-head">
+                  <h1 class="card-title">基本情報</h1>
+                  <button type="button" class="btn-outline" style="padding: 6px 14px; font-size: 12px">編集</button>
+                </div>
+                <div class="kv-grid">
+                  <div class="kv-col">
+                    <div class="kv-row"><span class="kv-label">社員番号</span><span class="kv-value bold">M0001</span></div>
+                    <div class="kv-row"><span class="kv-label">従業員番号</span><span class="kv-value">10133548</span></div>
+                    <div class="kv-row"><span class="kv-label">氏名</span><span class="kv-value bold">松本 恒一</span></div>
+                    <div class="kv-row"><span class="kv-label">氏名（かな）</span><span class="kv-value">まつもと　こういち</span></div>
+                    <div class="kv-row"><span class="kv-label">氏名（ローマ字）</span><span class="kv-value">Matumoto Kouiti</span></div>
+                    <div class="kv-row"><span class="kv-label">役職</span><span class="kv-value">課長</span></div>
+                    <div class="kv-row"><span class="kv-label">入社日</span><span class="kv-value">19760401</span></div>
+                    <div class="kv-row"><span class="kv-label">年次（舎い年次）</span><span class="kv-value">76B</span></div>
+                    <div class="kv-row"><span class="kv-label">性別</span><span class="kv-value">男</span></div>
+                    <div class="kv-row"><span class="kv-label">年齢</span><span class="kv-value">63</span></div>
+                    <div class="kv-row"><span class="kv-label">生年月日</span><span class="kv-value">1940/11/11</span></div>
+                  </div>
+                  <div class="kv-col">
+                    <div class="kv-row"><span class="kv-label">会社名</span><span class="kv-value">株式会社サンプル</span></div>
+                    <div class="kv-row"><span class="kv-label">所属本部</span><span class="kv-value">管理本部</span></div>
+                    <div class="kv-row"><span class="kv-label">所属部</span><span class="kv-value">経理財務部</span></div>
+                    <div class="kv-row"><span class="kv-label">所属グループ（課）</span><span class="kv-value">財務課</span></div>
+                    <div class="kv-row"><span class="kv-label">部長</span><span class="kv-value">部長　名前</span></div>
+                    <div class="kv-row"><span class="kv-label">課（案）長/GM</span><span class="kv-value">GM　名前</span></div>
+                    <div class="kv-row"><span class="kv-label">キャリアフィールド</span><span class="kv-value">キャリアフィールド名</span></div>
+                    <div class="kv-row"><span class="kv-label">本部役割区分</span><span class="kv-value">役割区分</span></div>
+                    <div class="kv-row"><span class="kv-label">メールアドレス</span><span class="kv-value link">koichi.matsumoto@example.co.jp</span></div>
+                    <div class="kv-row"><span class="kv-label">等級</span><span class="kv-value">等級B</span></div>
+                    <div class="kv-row"><span class="kv-label">人事メモ記号</span><span class="kv-value">☆</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="stat-row">
+                <div class="stat-card">
+                  <h3>勤続年数</h3>
+                  <div class="stat-sub">在籍期間</div>
+                  <div class="stat-num">8年9ヶ月</div>
+                </div>
+                <div class="stat-card">
+                  <h3>総合評価</h3>
+                  <div class="stat-sub">直近評価</div>
+                  <div class="stat-num lg">S</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- —— 身上書 —— -->
+            <div class="panel" id="panel-shinjosho">
+              <div class="shin-card">
+                <div class="section-title">社員・所属情報</div>
+                <div class="shin-inner">
+                  <div class="shin-col">
+                    <div class="kv-row-sm"><span class="kv-label-sm">社員番号</span><span class="kv-value-sm">M0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">従業員番号</span><span class="kv-value-sm">10133548</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">氏名</span><span class="kv-value-sm" style="font-weight: 600">松本 恒一</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">氏名（かな）</span><span class="kv-value-sm">まつもとこういち</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">氏名（ローマ字）</span><span class="kv-value-sm">Matumoto Kouiti</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">メールアドレス</span><span class="kv-value-sm" style="color: #1a52a6">koichi.matsumoto@example.co.jp</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">課（案）長/GM</span><span class="kv-value-sm" style="color: #9ca3af; font-style: italic">未入力</span></div>
+                  </div>
+                  <div class="shin-divider" aria-hidden="true"></div>
+                  <div class="shin-col">
+                    <div class="kv-row-sm"><span class="kv-label-sm">性別</span><span class="kv-value-sm">男</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">年齢</span><span class="kv-value-sm">85</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">所属名</span><span class="kv-value-sm">経理財務部</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">所属本部</span><span class="kv-value-sm">管理本部</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">入社日</span><span class="kv-value-sm">19760401</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">年次</span><span class="kv-value-sm">76B</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">役職名</span><span class="kv-value-sm">課長</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">等級</span><span class="kv-value-sm">等級B</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="shin-card">
+                <div class="section-title">本人情報・現住所</div>
+                <div class="shin-inner">
+                  <div class="shin-col">
+                    <div class="kv-row-sm"><span class="kv-label-sm">生年月日</span><span class="kv-value-sm">1984-05-12</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">戸籍氏名（漢字）</span><span class="kv-value-sm">東京都</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">戸籍氏名（かな）</span><span class="kv-value-sm">とうきょうと</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">現住所 〒</span><span class="kv-value-sm">100-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所</span><span class="kv-value-sm">東京都千代田区千代田 1-1-1</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所（かな）</span><span class="kv-value-sm">とうきょうとちよだくちよだ 1-1-1</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住居区分</span><span class="kv-value-sm">持家</span></div>
+                  </div>
+                  <div class="shin-divider" aria-hidden="true"></div>
+                  <div class="shin-col">
+                    <div class="kv-row-sm"><span class="kv-label-sm">婚姻日</span><span class="kv-value-sm">2012-06-15</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">電話番号</span><span class="kv-value-sm">03-1111-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所変更日</span><span class="kv-value-sm">2024-04-01</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">緊急連絡先</span><span class="kv-value-sm">090-1111-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">緊急連絡先氏名</span><span class="kv-value-sm">山田 由美</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">続柄</span><span class="kv-value-sm">配偶者</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">最寄駅</span><span class="kv-value-sm">東京駅</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="shin-card">
+                <div class="section-title">単身赴任先・通勤情報</div>
+                <div class="shin-inner">
+                  <div class="shin-col">
+                    <div class="kv-row-sm"><span class="kv-label-sm">(単身赴任先) 〒</span><span class="kv-value-sm">530-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所</span><span class="kv-value-sm">大阪府大阪市北区梅田 2-2-2</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所（かな）</span><span class="kv-value-sm">おおさかふおおさかしきたくうめだ 2-2-2</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所変更日</span><span class="kv-value-sm">2023-10-01</span></div>
+                  </div>
+                  <div class="shin-divider" aria-hidden="true"></div>
+                  <div class="shin-col">
+                    <div class="kv-row-sm"><span class="kv-label-sm">通勤時間</span><span class="kv-value-sm">35分</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住居区分</span><span class="kv-value-sm">社宅</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="shin-card">
+                <div class="section-title">本人実家・配偶者実家</div>
+                <div class="shin-inner">
+                  <div class="shin-col">
+                    <div class="subhead-pill">本人実家</div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">〒</span><span class="kv-value-sm">150-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">電話番号</span><span class="kv-value-sm">090-1111-9001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所</span><span class="kv-value-sm">東京都渋谷区神宮前 2-2-2</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所（かな）</span><span class="kv-value-sm">とうきょうとしぶやくじんぐうまえ 2-2-2</span></div>
+                  </div>
+                  <div class="shin-divider dark" aria-hidden="true"></div>
+                  <div class="shin-col">
+                    <div class="subhead-pill">配偶者実家</div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">〒</span><span class="kv-value-sm">150-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">電話番号</span><span class="kv-value-sm">0422-11-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所</span><span class="kv-value-sm">東京都武蔵野市吉祥寺 3-3-3</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">住所（かな）</span><span class="kv-value-sm">とうきょうとむさしのしきちじょうじ 3-3-3</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">続柄</span><span class="kv-value-sm">長姉</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="shin-card">
+                <div class="section-title">学歴</div>
+                <div class="edu-head">
+                  <span class="w-80">出身地</span>
+                  <span class="w-112">学部名</span>
+                  <span class="w-112">学科名</span>
+                  <span class="w-96">学歴区分</span>
+                  <span class="w-88">入学日</span>
+                  <span class="w-88">卒業日</span>
+                  <span class="flex-1">備考</span>
+                  <span class="w-56">卒業</span>
+                </div>
+                <div class="edu-row">
+                  <span class="w-80">AAA</span>
+                  <span class="w-112">AAA学部</span>
+                  <span class="w-112">AAA学科</span>
+                  <span class="w-96">AAA学歴</span>
+                  <span class="w-88">1997/04</span>
+                  <span class="w-88">2000/03</span>
+                  <span class="flex-1">note</span>
+                  <span class="w-56"><span class="edu-badge">卒業</span></span>
+                </div>
+                <div class="edu-row">
+                  <span class="w-80">BBB</span>
+                  <span class="w-112">BBB学部</span>
+                  <span class="w-112">BBB学科</span>
+                  <span class="w-96">AAA学歴</span>
+                  <span class="w-88">1997/04</span>
+                  <span class="w-88">2000/03</span>
+                  <span class="flex-1">note</span>
+                  <span class="w-56"><span class="edu-badge">卒業</span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- —— スキル —— -->
+            <div class="panel" id="panel-skills">
+              <div class="card" style="margin-bottom: 0">
+                <div class="skill-card-head">
+                  <div>
+                    <h2 class="card-title" style="margin: 0">スキルチャート</h2>
+                    <p class="skill-desc">
+                      技術力と業務遂行力を7軸で可視化。現在値と期待値を重ねて、伸ばすべき領域を直感的に把握できます。
+                    </p>
+                  </div>
+                  <div class="skill-tools">
+                    <button type="button" class="btn-outline" style="font-size: 11px; padding: 5px 12px">Tech Profile</button>
+                    <button type="button" class="btn-outline" style="font-size: 11px; padding: 5px 12px">7 Axis Radar</button>
+                  </div>
+                </div>
+                <div style="margin-bottom: 16px">
+                  <span class="pill-primary">現在スキル</span>
+                  <span class="pill-ghost" style="margin-left: 8px">期待値</span>
+                </div>
+                <div class="skill-chart-row">
+                  <div class="radar-wrap">
+                    <svg width="380" height="320" viewBox="0 0 380 320" role="img" aria-label="7軸レーダーチャート">
+                      <polygon
+                        points="190,20 310,93 336,211 261,306 119,306 64,211 70,93"
+                        fill="none"
+                        stroke="#e5e7eb"
+                        stroke-width="1"
+                      />
+                      <polygon
+                        points="190,44 282,101 306,199 247,278 133,278 88,199 98,101"
+                        fill="none"
+                        stroke="#e5e7eb"
+                        stroke-width="1"
+                      />
+                      <polygon
+                        points="190,68 254,109 276,187 233,250 147,250 112,187 126,109"
+                        fill="none"
+                        stroke="#e5e7eb"
+                        stroke-width="1"
+                      />
+                      <polygon
+                        points="190,92 226,117 246,175 219,222 161,222 136,175 154,117"
+                        fill="none"
+                        stroke="#e5e7eb"
+                        stroke-width="1"
+                      />
+                      <polygon
+                        points="190,116 198,125 216,163 205,194 175,194 160,163 182,125"
+                        fill="none"
+                        stroke="#e5e7eb"
+                        stroke-width="1"
+                      />
+                      <line x1="190" y1="163" x2="190" y2="20" stroke="#d1d5db" stroke-width="1" />
+                      <line x1="190" y1="163" x2="310" y2="93" stroke="#d1d5db" stroke-width="1" />
+                      <line x1="190" y1="163" x2="336" y2="211" stroke="#d1d5db" stroke-width="1" />
+                      <line x1="190" y1="163" x2="261" y2="306" stroke="#d1d5db" stroke-width="1" />
+                      <line x1="190" y1="163" x2="119" y2="306" stroke="#d1d5db" stroke-width="1" />
+                      <line x1="190" y1="163" x2="64" y2="211" stroke="#d1d5db" stroke-width="1" />
+                      <line x1="190" y1="163" x2="70" y2="93" stroke="#d1d5db" stroke-width="1" />
+                      <polygon
+                        points="190,37 301,100 312,205 253,288 137,276 86,206 114,112"
+                        fill="rgba(26,82,166,0.15)"
+                        stroke="#1A52A6"
+                        stroke-width="2"
+                      />
+                      <circle cx="190" cy="37" r="3" fill="#1A52A6" />
+                      <circle cx="301" cy="100" r="3" fill="#1A52A6" />
+                      <circle cx="312" cy="205" r="3" fill="#1A52A6" />
+                      <circle cx="253" cy="288" r="3" fill="#1A52A6" />
+                      <circle cx="137" cy="276" r="3" fill="#1A52A6" />
+                      <circle cx="86" cy="206" r="3" fill="#1A52A6" />
+                      <circle cx="114" cy="112" r="3" fill="#1A52A6" />
+                      <text x="190" y="12" text-anchor="middle" font-size="11" fill="#374151" font-family="Inter, sans-serif">AWS</text>
+                      <text x="322" y="88" font-size="11" fill="#374151" font-family="Inter, sans-serif">Java</text>
+                      <text x="342" y="214" font-size="11" fill="#374151" font-family="Inter, sans-serif">React</text>
+                      <text x="258" y="318" text-anchor="middle" font-size="11" fill="#374151" font-family="Inter, sans-serif">SQL</text>
+                      <text x="108" y="318" text-anchor="middle" font-size="11" fill="#374151" font-family="Inter, sans-serif">Docker</text>
+                      <text x="44" y="214" text-anchor="end" font-size="11" fill="#374151" font-family="Inter, sans-serif">設計力</text>
+                      <text x="5" y="88" text-anchor="start" font-size="11" fill="#374151" font-family="Inter, sans-serif">リーダーシップ</text>
+                    </svg>
+                  </div>
+                  <div class="bars">
+                    <div class="bar-row">
+                      <span class="bar-label">AWS</span>
+                      <div class="bar-track"><div class="bar-fill" style="width: 88%"></div></div>
+                      <span class="bar-score">4.4/5</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">Java</span>
+                      <div class="bar-track"><div class="bar-fill" style="width: 92%"></div></div>
+                      <span class="bar-score">4.6/5</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">React</span>
+                      <div class="bar-track"><div class="bar-fill" style="width: 82%"></div></div>
+                      <span class="bar-score">4.1/5</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">SQL</span>
+                      <div class="bar-track"><div class="bar-fill" style="width: 86%"></div></div>
+                      <span class="bar-score">4.3/5</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">Docker</span>
+                      <div class="bar-track"><div class="bar-fill muted" style="width: 76%"></div></div>
+                      <span class="bar-score muted">3.8/5</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">設計力</span>
+                      <div class="bar-track"><div class="bar-fill" style="width: 84%"></div></div>
+                      <span class="bar-score">4.2/5</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">リーダーシップ</span>
+                      <div class="bar-track"><div class="bar-fill muted" style="width: 78%"></div></div>
+                      <span class="bar-score muted">3.9/5</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
