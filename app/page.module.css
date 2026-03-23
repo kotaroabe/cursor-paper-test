@@ -20,6 +20,54 @@
   color: #9B8AAE;
 }
 
+.protoStrip {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 24px 12px;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.protoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ebf1fb 0%, #f0e8f5 100%);
+  border: 2px solid #1a52a6;
+  color: #1a52a6;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.protoLink:hover {
+  filter: brightness(0.97);
+}
+
+.protoLink:active {
+  transform: scale(0.99);
+}
+
+.protoLinkMuted {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: center;
+  text-decoration: none;
+}
+
+.protoLinkMuted:hover {
+  color: #1a52a6;
+  text-decoration: underline;
+}
+
 .statsRow {
   display: flex;
   width: 100%;

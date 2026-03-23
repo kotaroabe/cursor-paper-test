@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PhoneFrame from "@/components/PhoneFrame";
 import ClientCard from "@/components/ClientCard";
 import styles from "./page.module.css";
@@ -31,6 +32,15 @@ export default function ClientListPage() {
           <div className={styles.subtitle}>Customer List</div>
         </div>
         <div className="avatar-circle">N</div>
+      </div>
+
+      <div className={styles.protoStrip}>
+        <Link href="/nri-kaona" className={styles.protoLink}>
+          人材情報システム（NRI KAONA）デスクトップ版を開く
+        </Link>
+        <Link href="/kaona/career.html" className={styles.protoLinkMuted}>
+          KAONA · キャリア / 自己申告（HTML）
+        </Link>
       </div>
 
       {/* Stats */}
