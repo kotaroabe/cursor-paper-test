@@ -49,8 +49,8 @@
           <nav class="rail-nav" aria-label="プロフィール">
             <button type="button" class="rail-btn is-active" data-panel="basic">基本情報</button>
             <button type="button" class="rail-btn" data-panel="shinjosho">身上書</button>
-            <button type="button" class="rail-btn" data-panel="skills">スキル</button>
             <button type="button" class="rail-btn" data-panel="career">キャリア</button>
+            <button type="button" class="rail-btn" data-panel="skills">スキル</button>
             <button type="button" class="rail-btn" disabled>採用時情報</button>
             <button type="button" class="rail-btn" disabled>勤怠情報</button>
             <button type="button" class="rail-btn" data-panel="jiko">自己申告</button>
@@ -89,13 +89,14 @@
             <!-- —— 基本情報 —— -->
             <div class="panel is-visible" id="panel-basic">
               <div class="card">
-                <div class="card-head">
-                  <h1 class="card-title">基本情報</h1>
-                  <button type="button" class="btn-outline" style="padding: 6px 14px; font-size: 12px">編集</button>
+                <div class="card-head-paper">
+                  <h1 class="card-title-blue">基本情報</h1>
+                  <span class="card-head-spacer" aria-hidden="true"></span>
+                  <button type="button" class="btn-outline btn-edit-paper">編集</button>
                 </div>
                 <div class="kv-grid">
                   <div class="kv-col">
-                    <div class="kv-row"><span class="kv-label">社員番号</span><span class="kv-value bold">M0001</span></div>
+                    <div class="kv-row"><span class="kv-label">社員番号</span><span class="kv-value kv-value-medium">M0001</span></div>
                     <div class="kv-row"><span class="kv-label">従業員番号</span><span class="kv-value">10133548</span></div>
                     <div class="kv-row"><span class="kv-label">氏名</span><span class="kv-value bold">松本 恒一</span></div>
                     <div class="kv-row"><span class="kv-label">氏名（かな）</span><span class="kv-value">まつもと　こういち</span></div>
@@ -122,16 +123,16 @@
                   </div>
                 </div>
               </div>
-              <div class="stat-row">
-                <div class="stat-card">
-                  <h3>勤続年数</h3>
-                  <div class="stat-sub">在籍期間</div>
-                  <div class="stat-num">8年9ヶ月</div>
+              <div class="stat-row stat-row-paper">
+                <div class="stat-card stat-card-paper">
+                  <div class="stat-card-title">勤続年数</div>
+                  <div class="stat-num-paper">8年9ヶ月</div>
+                  <div class="stat-caption-paper">在籍期間</div>
                 </div>
-                <div class="stat-card">
-                  <h3>総合評価</h3>
-                  <div class="stat-sub">直近評価</div>
-                  <div class="stat-num lg">S</div>
+                <div class="stat-card stat-card-paper">
+                  <div class="stat-card-title">総合評価</div>
+                  <div class="stat-num-paper stat-num-paper-lg">S</div>
+                  <div class="stat-caption-paper">直近評価</div>
                 </div>
               </div>
             </div>
@@ -139,7 +140,7 @@
             <!-- —— 身上書 —— -->
             <div class="panel" id="panel-shinjosho">
               <div class="shin-card">
-                <div class="section-title">社員・所属情報</div>
+                <div class="section-title section-title-tracked">社員・所属情報</div>
                 <div class="shin-inner">
                   <div class="shin-col">
                     <div class="kv-row-sm"><span class="kv-label-sm">社員番号</span><span class="kv-value-sm">M0001</span></div>
@@ -169,8 +170,8 @@
                 <div class="shin-inner">
                   <div class="shin-col">
                     <div class="kv-row-sm"><span class="kv-label-sm">生年月日</span><span class="kv-value-sm">1984-05-12</span></div>
-                    <div class="kv-row-sm"><span class="kv-label-sm">戸籍氏名（漢字）</span><span class="kv-value-sm">東京都</span></div>
-                    <div class="kv-row-sm"><span class="kv-label-sm">戸籍氏名（かな）</span><span class="kv-value-sm">とうきょうと</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">戈籍氏名（漢字）</span><span class="kv-value-sm">東京都</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">戈籍氏名（かな）</span><span class="kv-value-sm">とうきょうと</span></div>
                     <div class="kv-row-sm"><span class="kv-label-sm">現住所 〒</span><span class="kv-value-sm">100-0001</span></div>
                     <div class="kv-row-sm"><span class="kv-label-sm">住所</span><span class="kv-value-sm">東京都千代田区千代田 1-1-1</span></div>
                     <div class="kv-row-sm"><span class="kv-label-sm">住所（かな）</span><span class="kv-value-sm">とうきょうとちよだくちよだ 1-1-1</span></div>
@@ -181,8 +182,8 @@
                     <div class="kv-row-sm"><span class="kv-label-sm">婚姻日</span><span class="kv-value-sm">2012-06-15</span></div>
                     <div class="kv-row-sm"><span class="kv-label-sm">電話番号</span><span class="kv-value-sm">03-1111-0001</span></div>
                     <div class="kv-row-sm"><span class="kv-label-sm">住所変更日</span><span class="kv-value-sm">2024-04-01</span></div>
-                    <div class="kv-row-sm"><span class="kv-label-sm">緊急連絡先</span><span class="kv-value-sm">090-1111-0001</span></div>
-                    <div class="kv-row-sm"><span class="kv-label-sm">緊急連絡先氏名</span><span class="kv-value-sm">山田 由美</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">絊急連絡先</span><span class="kv-value-sm">090-1111-0001</span></div>
+                    <div class="kv-row-sm"><span class="kv-label-sm">絊急連絡先氏名</span><span class="kv-value-sm">山田 由美</span></div>
                     <div class="kv-row-sm"><span class="kv-label-sm">続柄</span><span class="kv-value-sm">配偶者</span></div>
                     <div class="kv-row-sm"><span class="kv-label-sm">最寄駅</span><span class="kv-value-sm">東京駅</span></div>
                   </div>
@@ -268,14 +269,14 @@
               <div class="card" style="margin-bottom: 0">
                 <div class="skill-card-head">
                   <div>
-                    <h2 class="card-title" style="margin: 0">スキルチャート</h2>
+                    <h2 class="card-title skill-chart-title">スキルチャート</h2>
                     <p class="skill-desc">
                       技術力と業務遂行力を7軸で可視化。現在値と期待値を重ねて、伸ばすべき領域を直感的に把握できます。
                     </p>
                   </div>
                   <div class="skill-tools">
-                    <button type="button" class="btn-outline" style="font-size: 12px; padding: 5px 12px">Tech Profile</button>
-                    <button type="button" class="btn-outline" style="font-size: 12px; padding: 5px 12px">7 Axis Radar</button>
+                    <button type="button" class="btn-outline skill-tool-btn">Tech Profile</button>
+                    <button type="button" class="btn-outline skill-tool-btn">7 Axis Radar</button>
                   </div>
                 </div>
                 <div style="margin-bottom: 16px">
@@ -387,15 +388,15 @@
 
             <!-- —— キャリア —— -->
             <div class="panel" id="panel-career">
-              <div class="card">
+              <div class="card career-hero-card">
                 <div class="career-hero-inner">
                   <div class="career-photo" aria-hidden="true">写真</div>
                   <div>
-                    <div class="career-name">松 本 恒 一</div>
+                    <div class="career-name">松本 恒一</div>
                     <div class="career-email">matumoto koichi / koichi.matsumoto@example.co.jp</div>
                     <div class="career-badges">
                       <span class="career-badge-pill">マネジメント (M+)</span>
-                      <span class="career-meta-muted">社員番号: 10133548</span>
+                      <span class="career-meta-muted">社員番号: 20020401</span>
                     </div>
                   </div>
                 </div>
@@ -406,19 +407,19 @@
                 <div class="career-aff-grid">
                   <div class="career-aff-item">
                     <div class="career-aff-label">会社名</div>
-                    <div class="career-aff-value">株式会社サンプル</div>
+                    <div class="career-aff-value">野村総合研究所</div>
                   </div>
                   <div class="career-aff-item">
                     <div class="career-aff-label">所属名</div>
-                    <div class="career-aff-value">経理財務部（本社勤務）</div>
+                    <div class="career-aff-value">(NRIデジタル出向)</div>
                   </div>
                   <div class="career-aff-item">
                     <div class="career-aff-label">キャリアフィールド</div>
-                    <div class="career-aff-value link">財務・管理会計</div>
+                    <div class="career-aff-value link">システムコンサルタント</div>
                   </div>
                   <div class="career-aff-item">
                     <div class="career-aff-label">入社日</div>
-                    <div class="career-aff-value">1976/04/01</div>
+                    <div class="career-aff-value">2002/04/01</div>
                   </div>
                   <div class="career-aff-item">
                     <div class="career-aff-label">本部役割区分</div>
@@ -433,12 +434,10 @@
 
               <div class="card">
                 <div class="career-table-toolbar">
-                  <span class="career-table-title">1. 異動履歴</span>
+                  <span class="career-block-title">1. 異動履歴</span>
                   <div class="career-filter">
-                    <span>異動歴表示設定:</span>
-                    <select aria-label="異動歴表示設定">
-                      <option>シニアアソシエイト以下を表示</option>
-                    </select>
+                    <span class="career-filter-label">異動歴表示設定:</span>
+                    <div class="career-filter-box" role="text">シニアアソシエイト以下を表示</div>
                   </div>
                 </div>
                 <div class="career-table">
@@ -449,52 +448,64 @@
                     <span class="career-col-title">肩書</span>
                   </div>
                   <div class="career-row">
-                    <span class="career-col-date">2024/04/01</span>
-                    <span class="career-col-aff">経理財務部 / 財務課</span>
-                    <span class="career-col-role">課長</span>
+                    <span class="career-col-date">2025/04/01</span>
+                    <span class="career-col-aff">本社勤務(NRIデジタル(株)出向)</span>
+                    <span class="career-col-role">エキスパート職(M+)</span>
                     <span class="career-col-title">-</span>
                   </div>
-                  <div class="career-row alt">
+                  <div class="career-row">
+                    <span class="career-col-date">2022/04/01</span>
+                    <span class="career-col-aff">本社勤務(NRIデジタル(株)出向)</span>
+                    <span class="career-col-role">エキスパート職(C+)</span>
+                    <span class="career-col-title">-</span>
+                  </div>
+                  <div class="career-row">
+                    <span class="career-col-date">2021/04/01</span>
+                    <span class="career-col-aff">本社勤務(NRIデジタル(株)出向)</span>
+                    <span class="career-col-role">上級専門職(上席)</span>
+                    <span class="career-col-title">-</span>
+                  </div>
+                  <div class="career-row">
                     <span class="career-col-date">2020/04/01</span>
-                    <span class="career-col-aff">経理財務部 / 財務課</span>
-                    <span class="career-col-role">主任</span>
+                    <span class="career-col-aff">本社勤務(NRIデジタル(株)出向)</span>
+                    <span class="career-col-role">上級専門職(上級)</span>
                     <span class="career-col-title">-</span>
                   </div>
                   <div class="career-row">
-                    <span class="career-col-date">2015/04/01</span>
-                    <span class="career-col-aff">経理財務部 / 管理会計グループ</span>
-                    <span class="career-col-role">担当</span>
+                    <span class="career-col-date">2019/04/01</span>
+                    <span class="career-col-aff">兼本社勤務(NRIデジタル(株)出向)</span>
+                    <span class="career-col-role">上級専門職(上級)</span>
                     <span class="career-col-title">-</span>
                   </div>
                   <div class="career-row alt">
-                    <span class="career-col-date">2005/04/01</span>
-                    <span class="career-col-aff">経理部 / 財務グループ</span>
-                    <span class="career-col-role">担当</span>
+                    <span class="career-col-date">2019/04/01</span>
+                    <span class="career-col-aff">REシステム事業部</span>
+                    <span class="career-col-role">上級専門職(上級)</span>
                     <span class="career-col-title">-</span>
                   </div>
                   <div class="career-row">
-                    <span class="career-col-date">1976/04/01</span>
-                    <span class="career-col-aff">経理部</span>
-                    <span class="career-col-role">新入社員</span>
+                    <span class="career-col-date">2002/04/01</span>
+                    <span class="career-col-aff">信託システム事業部</span>
+                    <span class="career-col-role">総合職</span>
                     <span class="career-col-title">-</span>
                   </div>
                 </div>
               </div>
 
               <div class="card">
-                <div class="career-section-title">2. 委員会委嘱歴</div>
+                <div class="career-section-title career-section-title-inline">2. 委員会委嘱歴</div>
                 <div class="empty-state-dashed">登録されている委嘱履歴はありません</div>
               </div>
             </div>
 
             <!-- —— 自己申告 —— -->
-            <div class="panel" id="panel-jiko">
+            <div class="panel panel-jiko" id="panel-jiko">
               <div class="jiko-page-head">
                 <div>
                   <div class="jiko-page-title">自己申告書</div>
                   <div class="jiko-page-sub">エキスパート職・アソシエイト職 向け</div>
                 </div>
-                <button type="button" class="btn-outline" style="padding: 8px 14px; font-size: 13px">戻る</button>
+                <button type="button" class="btn-outline jiko-back-btn">戻る</button>
               </div>
 
               <div class="jiko-form-card">
@@ -579,7 +590,7 @@
                   <span class="jiko-label">2. 人事異動の希望</span>
                   <div class="jiko-fake-select" style="margin-bottom: 8px">希望を選択</div>
                   <p class="jiko-option-hint">今の業務を継続したい / 1〜2年以内には他業務に就きたい</p>
-                  <p class="jiko-hint" style="margin: 14px 0 8px; font-weight: 700; color: #94a3b8; font-size: 11px; letter-spacing: 0.02em">希望する組織・職務</p>
+                  <p class="jiko-wish-heading">希望する組織・職務</p>
                   <div class="jiko-row-inline">
                     <label>第1希望</label>
                     <div class="jiko-fake-select" style="min-height: 32px"></div>
@@ -596,25 +607,25 @@
                 </div>
               </div>
 
-              <div class="jiko-de-row">
+                <div class="jiko-de-row">
                 <div class="jiko-form-card">
                   <span class="jiko-section-tag">D. 人事制度について</span>
                   <div style="margin-bottom: 14px">
-                    <span class="jiko-hint" style="font-weight: 700; color: #64748b; margin-bottom: 6px; display: block">評価結果への納得感</span>
-                    <div class="jiko-fake-select">納得している / どちらともいえない</div>
+                    <span class="jiko-de-label">評価結果への納得感</span>
+                    <div class="jiko-fake-select jiko-fake-filled">納得している / どちらともいえない</div>
                   </div>
                   <div>
-                    <span class="jiko-hint" style="font-weight: 700; color: #64748b; margin-bottom: 6px; display: block">フィードバック面談の実施</span>
-                    <div class="jiko-fake-select">すべて受けている / 一部受けていない</div>
+                    <span class="jiko-de-label">フィードバック面談の実施</span>
+                    <div class="jiko-fake-select jiko-fake-filled">すべて受けている / 一部受けていない</div>
                   </div>
                 </div>
                 <div class="jiko-form-card">
                   <span class="jiko-section-tag">E. 自身の健康状態等</span>
                   <div style="margin-bottom: 14px">
-                    <span class="jiko-hint" style="font-weight: 700; color: #64748b; margin-bottom: 6px; display: block">健康状態</span>
-                    <div class="jiko-fake-select">良好 / 懸念あり</div>
+                    <span class="jiko-de-label">健康状態</span>
+                    <div class="jiko-fake-select jiko-fake-filled">良好 / 懸念あり</div>
                   </div>
-                  <div class="jiko-fake-input tall" style="min-height: 60px; font-size: 12px">特記事項（家庭事情等）があれば記入</div>
+                  <div class="jiko-fake-input tall jiko-fake-note">特記事項（家庭事情等）があれば記入</div>
                 </div>
               </div>
 

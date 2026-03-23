@@ -1,4 +1,7 @@
 (function () {
+  var railNav = document.querySelector(".rail-nav");
+  var btnCareer = document.querySelector('.rail-btn[data-panel="career"]');
+  var btnSkills = document.querySelector('.rail-btn[data-panel="skills"]');
   var railButtons = document.querySelectorAll(".rail-btn[data-panel]");
   var panels = document.querySelectorAll(".panel");
   var crumbCurrent = document.getElementById("crumb-current");
@@ -15,7 +18,18 @@
     jiko: "自己申告書",
   };
 
+  function setRailOrderForPanel(id) {
+    /* Paper: 基本情報・身上書・スキルは「キャリア→スキル」、キャリア・自己申告は「スキル→キャリア」 */
+    if (!railNav || !btnCareer || !btnSkills) return;
+    if (id === "career" || id === "jiko") {
+      railNav.insertBefore(btnSkills, btnCareer);
+    } else {
+      railNav.insertBefore(btnCareer, btnSkills);
+    }
+  }
+
   function showPanel(id) {
+    setRailOrderForPanel(id);
     panels.forEach(function (p) {
       p.classList.toggle("is-visible", p.id === "panel-" + id);
     });
@@ -33,8 +47,9 @@
     if (crumbShinjoshoActions) {
       crumbShinjoshoActions.classList.toggle("hidden", id !== "shinjosho");
     }
+    /* Paper: 戻る はキャリア画面のパンくず行のみ（自己申告はページ内ヘッダーのみ） */
     if (crumbBackActions) {
-      crumbBackActions.classList.toggle("hidden", id !== "career" && id !== "jiko");
+      crumbBackActions.classList.toggle("hidden", id !== "career");
     }
   }
 

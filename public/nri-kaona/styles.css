@@ -373,6 +373,37 @@ body {
   color: var(--nk-black);
 }
 
+/* Paper 基本情報カード見出し */
+.card-head-paper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.card-title-blue {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nk-blue);
+  letter-spacing: 0.02em;
+}
+
+.card-head-spacer {
+  flex: 1;
+  min-width: 8px;
+}
+
+.btn-edit-paper {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
 .section-title {
   font-size: 13px;
   font-weight: 700;
@@ -380,6 +411,10 @@ body {
   border-bottom: 1px solid var(--nk-border);
   padding-bottom: 8px;
   margin-bottom: 12px;
+}
+
+.section-title-tracked {
+  letter-spacing: 0.02em;
 }
 
 /* —— Key-value grid (基本情報) —— */
@@ -420,6 +455,10 @@ body {
   font-weight: 600;
 }
 
+.kv-value-medium {
+  font-weight: 500;
+}
+
 .kv-value.link {
   color: var(--nk-blue);
 }
@@ -439,32 +478,45 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.stat-card h3 {
+/* Paper: タイトル（青）→ 大きな数値 → キャプション */
+.stat-row-paper {
+  gap: 16px;
+}
+
+.stat-card-paper {
+  padding: 14px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card-title {
   margin: 0 0 10px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--nk-black);
-  border-bottom: 1px solid var(--nk-border);
   padding-bottom: 8px;
-}
-
-.stat-sub {
-  font-size: 10px;
-  font-weight: 600;
+  border-bottom: 1px solid var(--nk-border);
+  font-size: 13px;
+  font-weight: 700;
   color: var(--nk-blue);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
-.stat-num {
+.stat-num-paper {
+  margin-top: 2px;
   font-size: 32px;
   font-weight: 800;
-  color: var(--nk-black);
-  line-height: 1.15;
-  margin-top: 2px;
+  line-height: 1.2;
+  color: #111111;
 }
 
-.stat-num.lg {
+.stat-num-paper-lg {
   font-size: 40px;
+  font-weight: 900;
+}
+
+.stat-caption-paper {
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #6c7280;
 }
 
 /* —— 身上書: two columns inside section card —— */
@@ -544,8 +596,8 @@ body {
   background: var(--nk-card-inner);
   font-weight: 600;
   color: var(--nk-label);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: none;
+  letter-spacing: 0.04em;
   padding: 8px 8px;
   border-bottom: 1px solid var(--nk-border);
 }
@@ -607,6 +659,13 @@ body {
   margin-bottom: 4px;
 }
 
+.skill-chart-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--nk-black);
+}
+
 .skill-desc {
   margin: 4px 0 0;
   font-size: 12px;
@@ -618,6 +677,12 @@ body {
 .skill-tools {
   display: flex;
   gap: 8px;
+}
+
+.skill-tool-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .pill-primary {
@@ -671,7 +736,8 @@ body {
 }
 
 .bar-label {
-  width: 100px;
+  min-width: 100px;
+  width: 120px;
   flex-shrink: 0;
   font-size: 13px;
   font-weight: 500;
@@ -739,7 +805,7 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: var(--nk-black);
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 }
 
 .career-email {
@@ -760,14 +826,14 @@ body {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   background: var(--nk-blue-light);
   color: var(--nk-blue);
 }
 
 .career-meta-muted {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--nk-caption);
   font-weight: 500;
 }
@@ -794,9 +860,9 @@ body {
 }
 
 .career-aff-label {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  color: #94a3b8;
+  color: var(--nk-label);
 }
 
 .career-aff-value {
@@ -823,29 +889,34 @@ body {
   margin-bottom: 12px;
 }
 
-.career-table-title {
+.career-block-title {
   font-size: 13px;
   font-weight: 700;
-  color: var(--nk-label);
+  color: var(--nk-blue);
+  letter-spacing: 0.02em;
 }
 
 .career-filter {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--nk-caption);
 }
 
-.career-filter select {
-  font: inherit;
+.career-filter-label {
   font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+}
+
+.career-filter-box {
+  display: inline-block;
   padding: 4px 8px;
   border: 1px solid var(--nk-border);
   border-radius: 4px;
   background: var(--nk-white);
   color: var(--nk-text);
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .career-table {
@@ -881,7 +952,7 @@ body {
 }
 
 .career-row.alt {
-  background: rgba(249, 250, 252, 0.85);
+  background: rgba(248, 250, 252, 0.8);
 }
 
 .career-col-date {
@@ -901,9 +972,12 @@ body {
 }
 
 .career-col-title {
-  width: 40px;
+  width: 48px;
   flex-shrink: 0;
   color: var(--nk-caption);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 .empty-state-dashed {
@@ -1028,7 +1102,8 @@ body {
   border-bottom: 1px solid var(--nk-border);
   font-size: 11px;
   font-weight: 600;
-  color: #64748b;
+  color: var(--nk-label);
+  letter-spacing: 0.04em;
 }
 
 .jiko-eval-row {
@@ -1057,6 +1132,14 @@ body {
   border-radius: 8px;
   border: 1px solid var(--nk-border);
   margin-top: 12px;
+}
+
+.jiko-wish-heading {
+  margin: 14px 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
 }
 
 .jiko-row-inline {
@@ -1104,7 +1187,36 @@ body {
   margin-right: auto;
   font-size: 11px;
   color: var(--nk-caption);
-  font-style: italic;
+  font-style: normal;
+}
+
+.panel-jiko {
+  max-width: none;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.jiko-back-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.jiko-de-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nk-label);
+}
+
+.jiko-fake-filled {
+  color: var(--nk-text);
+}
+
+.jiko-fake-note {
+  min-height: 60px;
+  font-size: 12px;
 }
 
 .btn-secondary {
